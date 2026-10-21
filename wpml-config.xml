@@ -1,0 +1,31 @@
+<wpml-config>
+	<!--
+		Ultimate Estimated Delivery Date by BigLoop.
+		Read by WPML (and Polylang, which supports this file).
+	-->
+
+	<!-- Product and variation estimates: copied from the original to translations. -->
+	<custom-fields>
+		<custom-field action="copy">_dleta_mode</custom-field>
+		<custom-field action="copy">_dleta_min_days</custom-field>
+		<custom-field action="copy">_dleta_max_days</custom-field>
+		<custom-field action="copy">_dleta_fixed_days</custom-field>
+		<custom-field action="copy">_dleta_exclude_weekends</custom-field>
+	</custom-fields>
+
+	<!-- Category estimates: copied from the original category to translations. -->
+	<custom-term-fields>
+		<custom-term-field action="copy">_dleta_mode</custom-term-field>
+		<custom-term-field action="copy">_dleta_min_days</custom-term-field>
+		<custom-term-field action="copy">_dleta_max_days</custom-term-field>
+		<custom-term-field action="copy">_dleta_fixed_days</custom-term-field>
+		<custom-term-field action="copy">_dleta_exclude_weekends</custom-term-field>
+	</custom-term-fields>
+
+	<!-- Texts shown to customers: translatable in WPML > String Translation. -->
+	<admin-texts>
+		<key name="dleta_label" />
+		<key name="dleta_total_label" />
+		<key name="dleta_date_format" />
+	</admin-texts>
+</wpml-config>

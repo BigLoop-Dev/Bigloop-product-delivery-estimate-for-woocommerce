@@ -1,0 +1,1406 @@
+/*
+ * Ultimate Estimated Delivery Date by BigLoop - admin styles.
+ *
+ * Settings tab styles are scoped to body.dleta-settings-page.
+ * Colors follow the WordPress admin palette so the screens feel native.
+ */
+
+:root {
+	--dleta-accent: var(--wp-admin-theme-color, #2271b1);
+	--dleta-accent-soft: rgba(34, 113, 177, 0.1);
+	--dleta-accent-soft: color-mix(in srgb, var(--dleta-accent) 10%, transparent);
+	--dleta-ink: #1d2327;
+	--dleta-ink-2: #50575e;
+	--dleta-ink-3: #8c8f94;
+	--dleta-line: #dcdcde;
+	--dleta-line-2: #e9e9eb;
+	--dleta-surface: #fff;
+	--dleta-surface-2: #f6f7f7;
+	--dleta-wire: #e2e4e7;
+	--dleta-wire-2: #eef0f2;
+	--dleta-radius: 8px;
+	--dleta-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+/* ------------------------------------------------------------------ *
+ * Header and section navigation
+ * ------------------------------------------------------------------ */
+
+.dleta-settings-page .woocommerce .subsubsub {
+	display: none;
+}
+
+.dleta-header {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	max-width: 1240px;
+	margin: 16px 0 12px;
+	padding: 16px 20px;
+	background: var(--dleta-surface);
+	border: 1px solid var(--dleta-line);
+	border-radius: var(--dleta-radius);
+	box-shadow: var(--dleta-shadow);
+}
+
+.dleta-header__brand {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.dleta-header__logo {
+	display: grid;
+	place-items: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 10px;
+	background: var(--dleta-accent);
+	color: #fff;
+	font-size: 26px;
+}
+
+.dleta-header__logo .dleta-estimate__icon {
+	margin: 0;
+}
+
+.dleta-settings-page h2.dleta-header__title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	font-size: 18px;
+	line-height: 1.3;
+}
+
+.dleta-header__version {
+	padding: 1px 7px;
+	border-radius: 999px;
+	background: var(--dleta-surface-2);
+	border: 1px solid var(--dleta-line);
+	color: var(--dleta-ink-2);
+	font-size: 11px;
+	font-weight: 500;
+}
+
+.dleta-header__tagline {
+	margin: 2px 0 0;
+	color: var(--dleta-ink-2);
+}
+
+.dleta-header__meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.dleta-badge {
+	padding: 3px 10px;
+	border-radius: 999px;
+	background: #edfaef;
+	color: #00632b;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.dleta-header__by {
+	margin-inline-start: 4px;
+	color: var(--dleta-ink-2);
+	font-size: 12px;
+	text-decoration: none;
+}
+
+.dleta-header__by:hover {
+	color: var(--dleta-accent);
+}
+
+/* WooCommerce pulls every nav in the settings form 30px left; keep ours aligned. */
+body.dleta-settings-page #mainform nav.dleta-nav {
+	margin: 0 0 16px;
+}
+
+.dleta-header {
+	box-sizing: border-box;
+}
+
+.dleta-nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	max-width: 1240px;
+	margin: 0 0 16px;
+	padding: 4px;
+	background: var(--dleta-surface-2);
+	border: 1px solid var(--dleta-line);
+	border-radius: 999px;
+	box-sizing: border-box;
+}
+
+.dleta-nav__item {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding-block: 7px;
+	padding-inline: 8px 16px;
+	border-radius: 999px;
+	color: var(--dleta-ink-2);
+	font-weight: 500;
+	text-decoration: none;
+	transition: background-color 0.15s, color 0.15s;
+}
+
+.dleta-nav__item:hover,
+.dleta-nav__item:focus {
+	color: var(--dleta-ink);
+	background: rgba(0, 0, 0, 0.04);
+}
+
+.dleta-nav__item.is-active {
+	background: var(--dleta-surface);
+	color: var(--dleta-accent);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dleta-nav__num {
+	display: grid;
+	place-items: center;
+	width: 22px;
+	height: 22px;
+	border-radius: 50%;
+	background: var(--dleta-line-2);
+	color: var(--dleta-ink-2);
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.dleta-nav__item.is-active .dleta-nav__num {
+	background: var(--dleta-accent);
+	color: #fff;
+}
+
+/* ------------------------------------------------------------------ *
+ * Cards
+ * ------------------------------------------------------------------ */
+
+.dleta-settings {
+	max-width: 1240px;
+}
+
+.dleta-card {
+	margin: 0 0 16px;
+	background: var(--dleta-surface);
+	border: 1px solid var(--dleta-line);
+	border-radius: var(--dleta-radius);
+	box-shadow: var(--dleta-shadow);
+	transition: opacity 0.2s;
+}
+
+.dleta-card.is-muted {
+	opacity: 0.55;
+}
+
+.dleta-card__head {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	padding: 16px 20px;
+	border-bottom: 1px solid var(--dleta-line-2);
+}
+
+.dleta-card__icon.dashicons {
+	flex: 0 0 auto;
+	width: 32px;
+	height: 32px;
+	border-radius: 8px;
+	background: var(--dleta-accent-soft);
+	color: var(--dleta-accent);
+	font-size: 18px;
+	line-height: 32px;
+	text-align: center;
+}
+
+.dleta-settings-page h2.dleta-card__title {
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+	line-height: 1.4;
+}
+
+.dleta-card__desc {
+	margin: 2px 0 0;
+	color: var(--dleta-ink-2);
+}
+
+.dleta-card__body {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+}
+
+.dleta-card--split .dleta-card__body {
+	grid-template-columns: minmax(0, 1fr) 380px;
+}
+
+.dleta-card__main {
+	padding: 4px 20px 12px;
+	min-width: 0;
+}
+
+.dleta-card__aside {
+	padding: 16px;
+	background: var(--dleta-surface-2);
+	border-inline-start: 1px solid var(--dleta-line-2);
+	border-end-end-radius: var(--dleta-radius);
+}
+
+@media (max-width: 1180px) {
+	.dleta-card--split .dleta-card__body {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.dleta-card__aside {
+		border-inline-start: 0;
+		border-top: 1px solid var(--dleta-line-2);
+		border-radius: 0 0 var(--dleta-radius) var(--dleta-radius);
+	}
+}
+
+/* Form rows inside cards. */
+.dleta-card .form-table {
+	margin: 0;
+}
+
+/* WooCommerce 11 makes value cells display:block, which breaks column widths. */
+@media (min-width: 783px) {
+	.dleta-settings-page .dleta-card table.form-table td.forminp {
+		display: table-cell;
+	}
+}
+
+.dleta-card .form-table th {
+	width: 190px;
+	padding: 16px 16px 16px 0;
+	font-weight: 500;
+}
+
+.dleta-card .form-table td {
+	padding: 12px 0;
+}
+
+.dleta-card .form-table tr + tr th,
+.dleta-card .form-table tr + tr td {
+	border-top: 1px solid var(--dleta-line-2);
+}
+
+.dleta-card .form-table tr.is-muted {
+	opacity: 0.5;
+}
+
+.dleta-settings-page h3.dleta-subhead {
+	margin: 16px 0 0;
+	padding: 0;
+	color: var(--dleta-ink-3);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.dleta-settings-page h3.dleta-subhead + .form-table tr:first-child th,
+.dleta-settings-page h3.dleta-subhead + .form-table tr:first-child td {
+	border-top: 0;
+}
+
+.dleta-card .form-table + h3.dleta-subhead {
+	padding-top: 16px;
+	border-top: 1px solid var(--dleta-line-2);
+}
+
+.dleta-card__main > table.form-table:first-child + h3.dleta-subhead {
+	padding-top: 0;
+	border-top: 0;
+}
+
+.dleta-settings select,
+.dleta-settings input.regular-text {
+	min-width: 280px;
+	max-width: 100%;
+}
+
+.dleta-settings-page .woocommerce table.form-table input.dleta-input-days,
+.dleta-settings-page .woocommerce table.form-table input.dleta-input-px {
+	width: 90px;
+}
+
+.dleta-settings-page .woocommerce table.form-table input.regular-text,
+.dleta-settings-page .woocommerce table.form-table select {
+	width: 100%;
+	max-width: 400px;
+}
+
+.dleta-settings .forminp-number > p.description {
+	display: inline-block;
+	margin: 0 0 0 8px;
+	vertical-align: middle;
+}
+
+/* Radio lists. */
+.dleta-settings .forminp-radio ul {
+	margin: 0;
+}
+
+.dleta-settings .forminp-radio li {
+	margin: 0 0 6px;
+}
+
+/* Switches (checkboxes restyled; still native inputs for accessibility). */
+.dleta-settings .forminp-checkbox label {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.dleta-settings .forminp-checkbox input[type="checkbox"] {
+	-webkit-appearance: none;
+	appearance: none;
+	position: relative;
+	flex: 0 0 auto;
+	width: 36px;
+	height: 20px;
+	margin: 0;
+	border: 0;
+	border-radius: 999px;
+	background: #c3c4c7;
+	box-shadow: none;
+	cursor: pointer;
+	transition: background-color 0.15s;
+}
+
+.dleta-settings .forminp-checkbox input[type="checkbox"]::before {
+	content: "";
+	position: absolute;
+	top: 2px;
+	inset-inline-start: 2px;
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	border-radius: 50%;
+	background: #fff;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+	transition: transform 0.15s;
+}
+
+.dleta-settings .forminp-checkbox input[type="checkbox"]:checked {
+	background: var(--dleta-accent);
+}
+
+.dleta-settings .forminp-checkbox input[type="checkbox"]:checked::before {
+	transform: translateX(16px);
+}
+
+.dleta-settings .forminp-checkbox input[type="checkbox"]:focus-visible {
+	outline: 2px solid var(--dleta-accent);
+	outline-offset: 2px;
+}
+
+/* Info box. */
+.dleta-row-full td {
+	padding: 12px 0 !important;
+}
+
+.dleta-info {
+	display: flex;
+	gap: 10px;
+	padding: 10px 12px;
+	border-radius: 6px;
+	background: var(--dleta-accent-soft);
+	color: var(--dleta-ink);
+}
+
+.dleta-info .dashicons {
+	flex: 0 0 auto;
+	color: var(--dleta-accent);
+}
+
+.dleta-info code {
+	background: rgba(255, 255, 255, 0.7);
+}
+
+/* ------------------------------------------------------------------ *
+ * "How the estimate is chosen"
+ * ------------------------------------------------------------------ */
+
+.dleta-hierarchy {
+	margin: 0 0 16px;
+	padding: 16px 20px;
+	background: var(--dleta-surface);
+	border: 1px solid var(--dleta-line);
+	border-radius: var(--dleta-radius);
+	box-shadow: var(--dleta-shadow);
+}
+
+.dleta-settings-page .dleta-hierarchy__intro h2 {
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+}
+
+.dleta-hierarchy__intro p {
+	margin: 2px 0 14px;
+	color: var(--dleta-ink-2);
+}
+
+.dleta-hierarchy__steps {
+	display: flex;
+	align-items: stretch;
+	gap: 8px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.dleta-hierarchy__step {
+	position: relative;
+	display: flex;
+	flex: 1 1 0;
+	flex-direction: column;
+	gap: 2px;
+	margin: 0;
+	padding-block: 12px;
+	padding-inline: 46px 14px;
+	border: 1px solid var(--dleta-line);
+	border-radius: var(--dleta-radius);
+	background: var(--dleta-surface);
+}
+
+.dleta-hierarchy__step.is-current {
+	border-color: var(--dleta-accent);
+	background: var(--dleta-accent-soft);
+}
+
+.dleta-hierarchy__rank {
+	position: absolute;
+	top: 12px;
+	inset-inline-start: 12px;
+	display: grid;
+	place-items: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background: var(--dleta-line-2);
+	color: var(--dleta-ink-2);
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.dleta-hierarchy__step.is-current .dleta-hierarchy__rank {
+	background: var(--dleta-accent);
+	color: #fff;
+}
+
+.dleta-hierarchy__title {
+	font-size: 14px;
+}
+
+.dleta-hierarchy__where {
+	color: var(--dleta-ink-2);
+	font-size: 12px;
+}
+
+.dleta-hierarchy__count {
+	margin-top: 4px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+span.dleta-hierarchy__count {
+	color: var(--dleta-ink-2);
+}
+
+.dleta-hierarchy__arrow {
+	display: flex;
+	flex: 0 0 auto;
+	align-items: center;
+	margin: 0;
+	color: var(--dleta-ink-3);
+	font-size: 11px;
+}
+
+.dleta-hierarchy__arrow span::after {
+	content: " \2192";
+	font-size: 14px;
+}
+
+@media (max-width: 900px) {
+	.dleta-hierarchy__steps {
+		flex-direction: column;
+	}
+
+	.dleta-hierarchy__arrow {
+		justify-content: center;
+	}
+
+	.dleta-hierarchy__arrow span::after {
+		content: " \2193";
+	}
+}
+
+/* ------------------------------------------------------------------ *
+ * Side panels (asides)
+ * ------------------------------------------------------------------ */
+
+.dleta-panel__label {
+	margin: 0 0 10px;
+	color: var(--dleta-ink-3);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+}
+
+.dleta-panel__note {
+	margin: 10px 0 0;
+	color: var(--dleta-ink-2);
+	font-size: 12px;
+}
+
+/* Live example + calendar. */
+.dleta-example__result {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin: 0 0 12px;
+	padding: 10px 12px;
+	border-radius: 6px;
+	background: var(--dleta-surface);
+	border: 1px solid var(--dleta-line);
+	font-size: 15px;
+}
+
+.dleta-example__result .dleta-estimate__icon {
+	color: var(--dleta-accent);
+	font-size: 18px;
+}
+
+.dleta-cal {
+	display: grid;
+	grid-template-columns: repeat(7, 1fr);
+	gap: 3px;
+	padding: 10px;
+	border-radius: 6px;
+	background: var(--dleta-surface);
+	border: 1px solid var(--dleta-line);
+}
+
+.dleta-cal__head {
+	padding-bottom: 4px;
+	color: var(--dleta-ink-3);
+	font-size: 10px;
+	font-weight: 600;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.dleta-cal__day {
+	display: grid;
+	place-items: center;
+	height: 28px;
+	border-radius: 4px;
+	color: var(--dleta-ink);
+	font-size: 12px;
+}
+
+.dleta-cal__day.is-past {
+	visibility: hidden;
+}
+
+.dleta-cal__day.is-skipped,
+.dleta-cal__key.is-skipped {
+	background: repeating-linear-gradient(-45deg, var(--dleta-wire-2), var(--dleta-wire-2) 3px, transparent 3px, transparent 6px);
+	color: var(--dleta-ink-3);
+}
+
+.dleta-cal__day.is-window,
+.dleta-cal__key.is-window {
+	background: var(--dleta-accent-soft);
+	color: var(--dleta-accent);
+	font-weight: 600;
+}
+
+.dleta-cal__day.is-window.is-skipped {
+	background: repeating-linear-gradient(-45deg, var(--dleta-accent-soft), var(--dleta-accent-soft) 3px, transparent 3px, transparent 6px);
+	color: var(--dleta-ink-3);
+	font-weight: 400;
+}
+
+.dleta-cal__day.is-start,
+.dleta-cal__day.is-end {
+	background: var(--dleta-accent);
+	color: #fff;
+}
+
+.dleta-cal__day.is-today,
+.dleta-cal__key.is-today {
+	box-shadow: inset 0 0 0 2px var(--dleta-ink);
+}
+
+.dleta-cal__legend {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	margin: 8px 0 0;
+	padding: 0;
+	list-style: none;
+	color: var(--dleta-ink-2);
+	font-size: 11px;
+}
+
+.dleta-cal__legend li {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin: 0;
+}
+
+.dleta-cal__key {
+	display: inline-block;
+	width: 12px;
+	height: 12px;
+	border-radius: 3px;
+	background: var(--dleta-surface);
+}
+
+/* ------------------------------------------------------------------ *
+ * Wireframes
+ * ------------------------------------------------------------------ */
+
+.dleta-wf__page {
+	padding: 14px;
+	border-radius: 6px;
+	background: var(--dleta-surface);
+	border: 1px solid var(--dleta-line);
+	font-size: 11px;
+	line-height: 1.3;
+	transition: opacity 0.2s;
+}
+
+.dleta-wf.is-off .dleta-wf__page {
+	opacity: 0.4;
+}
+
+.dleta-wf .dleta-panel__note--off,
+.dleta-wf .dleta-panel__note--none {
+	display: none;
+}
+
+.dleta-wf.is-off .dleta-panel__note--off,
+.dleta-wf.is-empty .dleta-panel__note--none {
+	display: block;
+}
+
+.dleta-wf__bar {
+	display: block;
+	height: 7px;
+	margin: 0 0 6px;
+	border-radius: 4px;
+	background: var(--dleta-wire);
+}
+
+.dleta-wf__bar--title {
+	width: 70%;
+	height: 11px;
+	margin-bottom: 8px;
+	background: #c8ccd1;
+}
+
+.dleta-wf__bar--short {
+	width: 60%;
+}
+
+.dleta-wf__bar--meta {
+	width: 45%;
+	height: 5px;
+	margin-top: 6px;
+}
+
+.dleta-wf__cols {
+	display: grid;
+	grid-template-columns: 42% 1fr;
+	gap: 12px;
+}
+
+.dleta-wf__gallery {
+	display: grid;
+	place-items: center;
+	aspect-ratio: 1 / 1.1;
+	border-radius: 4px;
+	background: var(--dleta-wire-2);
+	color: #c3c4c7;
+}
+
+.dleta-wf__gallery .dashicons {
+	width: 28px;
+	height: 28px;
+	font-size: 28px;
+}
+
+.dleta-wf__price {
+	display: block;
+	margin: 0 0 6px;
+	color: var(--dleta-ink);
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.dleta-wf__buy {
+	display: flex;
+	gap: 5px;
+	margin: 2px 0 4px;
+}
+
+.dleta-wf__qty {
+	display: grid;
+	place-items: center;
+	width: 22px;
+	border: 1px solid var(--dleta-line);
+	border-radius: 3px;
+	color: var(--dleta-ink-2);
+}
+
+.dleta-wf__btn {
+	display: inline-block;
+	padding: 5px 10px;
+	border-radius: 3px;
+	background: #50575e;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 600;
+	text-align: center;
+}
+
+.dleta-wf__btn--wide {
+	display: block;
+	margin-top: 8px;
+}
+
+.dleta-wf__tabs {
+	display: flex;
+	gap: 6px;
+	margin-top: 10px;
+	padding-top: 8px;
+	border-top: 1px solid var(--dleta-line-2);
+}
+
+.dleta-wf__tabs span {
+	width: 40px;
+	height: 6px;
+	border-radius: 3px;
+	background: var(--dleta-wire);
+}
+
+/* Clickable positions on the product wireframe. */
+.dleta-wf__slot {
+	position: relative;
+	display: block;
+	width: 100%;
+	min-height: 8px;
+	margin: 2px 0 6px;
+	padding: 0;
+	border: 1px dashed transparent;
+	border-radius: 4px;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	text-align: start;
+	cursor: pointer;
+}
+
+.dleta-wf__slot::before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 0;
+	left: 0;
+	border-top: 1px dashed #b4b9be;
+}
+
+.dleta-wf__slot:hover,
+.dleta-wf__slot:focus-visible {
+	border-color: var(--dleta-accent);
+	background: var(--dleta-accent-soft);
+	outline: none;
+}
+
+.dleta-wf__slot:hover::before,
+.dleta-wf__slot:focus-visible::before {
+	display: none;
+}
+
+.dleta-wf__slot-hint {
+	display: none;
+	padding: 3px 6px;
+	color: var(--dleta-accent);
+	font-size: 10px;
+	font-weight: 600;
+}
+
+.dleta-wf__slot:not(.is-active):hover .dleta-wf__slot-hint,
+.dleta-wf__slot:not(.is-active):focus-visible .dleta-wf__slot-hint {
+	display: block;
+}
+
+.dleta-wf__slot .dleta-wf__eta {
+	display: none;
+}
+
+.dleta-wf__slot.is-active {
+	border-color: transparent;
+	background: transparent;
+}
+
+.dleta-wf__slot.is-active::before {
+	display: none;
+}
+
+.dleta-wf__slot.is-active .dleta-wf__eta {
+	display: flex;
+}
+
+/* The estimate as drawn in the wireframes. */
+.dleta-wf__eta {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	padding: 5px 7px;
+	border-radius: 4px;
+	background: var(--dleta-accent-soft);
+	box-shadow: inset 0 0 0 1px var(--dleta-accent);
+	color: var(--dleta-ink);
+	font-size: 10px;
+	line-height: 1.3;
+	animation: dleta-pop 0.25s ease-out;
+}
+
+.dleta-wf__eta .dleta-estimate__icon {
+	width: 13px;
+	height: 13px;
+	margin: 0;
+	color: var(--dleta-accent);
+}
+
+.dleta-wf__eta-label {
+	color: var(--dleta-ink-2);
+}
+
+.dleta-wf__eta--small {
+	display: inline-flex;
+	padding: 3px 6px;
+	font-size: 9px;
+}
+
+.dleta-wf__eta.is-off,
+.dleta-wf__line--eta.is-off {
+	display: none;
+}
+
+@keyframes dleta-pop {
+	from {
+		opacity: 0;
+		transform: scale(0.97);
+	}
+
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.dleta-wf__eta {
+		animation: none;
+	}
+}
+
+/* Cart and checkout wireframes. */
+.dleta-wf__heading {
+	display: block;
+	margin: 0 0 10px;
+	color: var(--dleta-ink);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.dleta-wf__subheading {
+	display: block;
+	margin: 0 0 6px;
+	color: var(--dleta-ink);
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.dleta-wf__item {
+	display: grid;
+	grid-template-columns: 28px 1fr auto;
+	align-items: start;
+	gap: 8px;
+	padding: 8px 0;
+	border-bottom: 1px solid var(--dleta-line-2);
+}
+
+.dleta-wf__thumb {
+	width: 28px;
+	height: 28px;
+	border-radius: 3px;
+	background: var(--dleta-wire-2);
+}
+
+.dleta-wf__item-main .dleta-wf__bar {
+	width: 80%;
+	margin: 3px 0 5px;
+}
+
+.dleta-wf__item-main .dleta-wf__bar--short {
+	width: 55%;
+}
+
+.dleta-wf__amount {
+	color: var(--dleta-ink-2);
+	font-weight: 600;
+}
+
+.dleta-wf__totals {
+	margin-top: 8px;
+}
+
+.dleta-wf__line {
+	display: flex;
+	justify-content: space-between;
+	gap: 8px;
+	padding: 3px 0;
+	color: var(--dleta-ink-2);
+}
+
+.dleta-wf__line--total {
+	margin-top: 2px;
+	padding-top: 6px;
+	border-top: 1px solid var(--dleta-line-2);
+	color: var(--dleta-ink);
+	font-weight: 700;
+}
+
+.dleta-wf__line--eta {
+	margin-top: 6px;
+	padding: 6px 7px;
+	border-radius: 4px;
+	background: var(--dleta-accent-soft);
+	box-shadow: inset 0 0 0 1px var(--dleta-accent);
+	color: var(--dleta-ink);
+	font-size: 10px;
+	animation: dleta-pop 0.25s ease-out;
+}
+
+.dleta-wf__page--checkout {
+	display: grid;
+	grid-template-columns: 28% 1fr;
+	gap: 10px;
+}
+
+.dleta-wf__page--checkout .dleta-wf__item {
+	grid-template-columns: 20px 1fr auto;
+	gap: 6px;
+}
+
+.dleta-wf__page--checkout .dleta-wf__thumb {
+	width: 20px;
+	height: 20px;
+}
+
+.dleta-wf__page--checkout .dleta-wf__eta--small .dleta-wf__eta-label {
+	display: none;
+}
+
+.dleta-wf__field {
+	display: block;
+	height: 16px;
+	margin: 0 0 6px;
+	border: 1px solid var(--dleta-line);
+	border-radius: 3px;
+}
+
+.dleta-wf__field--half {
+	width: 50%;
+}
+
+.dleta-wf__review {
+	padding: 8px;
+	border-radius: 4px;
+	background: var(--dleta-surface-2);
+}
+
+/* ------------------------------------------------------------------ *
+ * Appearance: icon tiles, media field, live preview
+ * ------------------------------------------------------------------ */
+
+.dleta-tiles {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+	gap: 8px;
+	max-width: 520px;
+}
+
+.dleta-tile {
+	position: relative;
+	display: block;
+	cursor: pointer;
+}
+
+.dleta-tile input {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.dleta-tile__face {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 6px;
+	padding: 12px 6px 10px;
+	border: 1px solid var(--dleta-line);
+	border-radius: var(--dleta-radius);
+	background: var(--dleta-surface);
+	color: var(--dleta-ink-2);
+	text-align: center;
+	transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.dleta-tile:hover .dleta-tile__face {
+	border-color: #8c8f94;
+	color: var(--dleta-ink);
+}
+
+.dleta-tile input:checked + .dleta-tile__face {
+	border-color: var(--dleta-accent);
+	background: var(--dleta-accent-soft);
+	box-shadow: inset 0 0 0 1px var(--dleta-accent);
+	color: var(--dleta-accent);
+}
+
+.dleta-tile input:focus-visible + .dleta-tile__face {
+	outline: 2px solid var(--dleta-accent);
+	outline-offset: 2px;
+}
+
+.dleta-tile__glyph.dleta-estimate__icon {
+	width: 24px;
+	height: 24px;
+	margin: 0;
+}
+
+.dleta-tile__glyph.dashicons {
+	width: 24px;
+	height: 24px;
+	font-size: 24px;
+}
+
+.dleta-tile__label {
+	font-size: 11px;
+	line-height: 1.25;
+}
+
+/* Date format picker. */
+.dleta-formats {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+	gap: 8px;
+	max-width: 620px;
+}
+
+.dleta-format {
+	position: relative;
+	display: block;
+	cursor: pointer;
+}
+
+.dleta-format > input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.dleta-format__face {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	height: 100%;
+	padding: 9px 11px;
+	border: 1px solid var(--dleta-line);
+	border-radius: var(--dleta-radius);
+	background: var(--dleta-surface);
+	box-sizing: border-box;
+	transition: border-color 0.15s, background-color 0.15s;
+}
+
+.dleta-format:hover .dleta-format__face {
+	border-color: #8c8f94;
+}
+
+.dleta-format > input:checked + .dleta-format__face {
+	border-color: var(--dleta-accent);
+	background: var(--dleta-accent-soft);
+	box-shadow: inset 0 0 0 1px var(--dleta-accent);
+}
+
+.dleta-format > input:focus-visible + .dleta-format__face {
+	outline: 2px solid var(--dleta-accent);
+	outline-offset: 2px;
+}
+
+.dleta-format__sample {
+	color: var(--dleta-ink);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.dleta-format__code {
+	padding: 0;
+	background: none;
+	color: var(--dleta-ink-3);
+	font-size: 11px;
+}
+
+.dleta-format__title {
+	color: var(--dleta-ink);
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.dleta-settings-page .woocommerce table.form-table input.dleta-format__input {
+	width: 100%;
+	min-height: 30px;
+	font-family: Consolas, Monaco, monospace;
+	font-size: 12px;
+}
+
+.dleta-format--custom {
+	grid-column: 1 / -1;
+}
+
+.dleta-format--custom .dleta-format__face {
+	display: grid;
+	grid-template-columns: auto minmax(120px, 200px) 1fr;
+	align-items: center;
+	gap: 10px;
+}
+
+.dleta-media-field {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.dleta-media-preview img {
+	display: block;
+	width: auto;
+	max-width: 64px;
+	height: 40px;
+	padding: 4px;
+	border: 1px solid var(--dleta-line);
+	border-radius: 4px;
+	background: #fff;
+	object-fit: contain;
+}
+
+.dleta-preview-panel {
+	position: sticky;
+	top: 48px;
+}
+
+.dleta-mock {
+	padding: 18px;
+	border: 1px solid var(--dleta-line);
+	border-radius: 6px;
+	background: #fff;
+	color: var(--dleta-ink);
+}
+
+.dleta-mock__price {
+	display: block;
+	margin: 0 0 4px;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.dleta-mock .dleta-estimate {
+	margin: 10px 0 14px;
+}
+
+.dleta-mock__btn {
+	display: inline-block;
+	padding: 8px 16px;
+	border-radius: 4px;
+	background: #50575e;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+/* Shortcode list. */
+.dleta-shortcodes {
+	margin: 0;
+}
+
+.dleta-shortcodes li {
+	display: grid;
+	grid-template-columns: minmax(170px, auto) 1fr auto;
+	align-items: center;
+	gap: 12px;
+	margin: 0;
+	padding: 10px 0;
+	border-bottom: 1px solid var(--dleta-line-2);
+}
+
+.dleta-shortcodes li:last-child {
+	border-bottom: 0;
+}
+
+.dleta-shortcodes span {
+	color: var(--dleta-ink-2);
+}
+
+/* ------------------------------------------------------------------ *
+ * Category and product screens
+ * ------------------------------------------------------------------ */
+
+/* Fields inside each variation. */
+.dleta-variation {
+	clear: both;
+	margin: 8px 0 0;
+	padding: 4px 0 0;
+	border-top: 1px solid var(--dleta-line-2);
+}
+
+.dleta-variation::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.dleta-variation__head label {
+	display: inline-flex !important;
+	align-items: center;
+	gap: 4px;
+	font-weight: 600;
+}
+
+.dleta-variation__head .dashicons {
+	color: var(--dleta-accent);
+}
+
+.dleta-variation .dleta-var-rule label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+#woocommerce-product-data ul.wc-tabs li.dleta_options a::before {
+	content: "\f145"; /* dashicons-calendar */
+}
+
+.dleta-term-fields select {
+	min-width: 260px;
+}
+
+.column-dleta {
+	width: 16%;
+}
+
+.dleta-muted {
+	color: #8c8f94;
+}
+
+.dleta-levels {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 6px;
+	margin: 0 0 8px;
+	padding: 0;
+	list-style: none;
+}
+
+.dleta-levels li {
+	margin: 0;
+	padding: 3px 9px;
+	border: 1px solid var(--dleta-line);
+	border-radius: 999px;
+	background: #fff;
+	color: var(--dleta-ink-2);
+	font-size: 12px;
+}
+
+.dleta-levels li.is-active {
+	border-color: var(--dleta-accent);
+	background: var(--dleta-accent-soft);
+	color: var(--dleta-accent);
+	font-weight: 600;
+}
+
+.dleta-levels li.dleta-levels__sep {
+	display: inline-block;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--dleta-ink-3);
+}
+
+.dleta-box {
+	margin: 12px;
+	padding: 12px 14px;
+	border: 1px solid var(--dleta-line-2);
+	border-inline-start: 3px solid var(--dleta-accent);
+	border-radius: 4px;
+	background: var(--dleta-surface-2);
+}
+
+.dleta-box p {
+	margin: 0;
+	color: var(--dleta-ink-2);
+}
+
+.dleta-box__current {
+	margin-top: 6px !important;
+	color: var(--dleta-ink) !important;
+}
+
+.form-field .dleta-box,
+.dleta-term-fields .dleta-box {
+	margin: 8px 0 0;
+	max-width: 95%;
+}
+
+/* ------------------------------------------------------------------ *
+ * Right-to-left languages (WordPress adds .rtl to <body>).
+ * Layout already uses logical properties; only these need mirroring.
+ * ------------------------------------------------------------------ */
+
+.rtl .dleta-settings .forminp-checkbox input[type="checkbox"]:checked::before {
+	transform: translateX(-16px);
+}
+
+.rtl .dleta-hierarchy__arrow span::after {
+	content: " \2190";
+}
+
+@media (max-width: 900px) {
+	.rtl .dleta-hierarchy__arrow span::after {
+		content: " \2193";
+	}
+}
+
+.rtl .dleta-levels li.dleta-levels__sep {
+	transform: scaleX(-1);
+}
