@@ -1,141 +1,76 @@
-=== Ultimate Estimated Delivery Date by BigLoop ===
-Contributors: yourwporgusername
-Tags: woocommerce, estimated delivery, delivery date, shipping, delivery time
-Requires at least: 6.5
-Tested up to: 7.1
-Requires PHP: 7.4
-Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+# Ultimate Estimated Delivery Date by BigLoop
 
-Estimated delivery dates on product, cart and checkout pages. Set them globally, per category, product or variation. Subscriptions and WPML ready.
+Show customers when their order will arrive. A free WooCommerce plugin that adds an estimated delivery date to product pages, the cart, checkout and orders, for example **"Estimated delivery: Thu, Oct 22 – Mon, Oct 26"**.
 
-== Description ==
+Every feature is free, nothing is locked, and the plugin never contacts an outside server.
 
-Ultimate Estimated Delivery Date by BigLoop is a free WooCommerce extension that shows customers when their order should arrive, for example "Estimated delivery: Thu, Oct 22 – Mon, Oct 26".
+![WordPress 6.5+](https://img.shields.io/badge/WordPress-6.5%2B-21759b)
+![WooCommerce 8.0+](https://img.shields.io/badge/WooCommerce-8.0%2B-7f54b3)
+![PHP 7.4+](https://img.shields.io/badge/PHP-7.4%2B-777bb4)
+![License GPLv2 or later](https://img.shields.io/badge/License-GPLv2%20or%20later-green)
 
-The plugin is completely free. Every feature is included, nothing is locked, and it never contacts any outside server.
+## Screenshots
 
-= Features =
+| Product page | Cart and checkout |
+| --- | --- |
+| ![Estimated delivery date on a product page](screenshots/1-product-page.png) | ![Estimates in the cart with the order estimate after the total](screenshots/2-cart-checkout.png) |
+| **Delivery time settings** with a live calendar | **Placement settings** with page wireframes |
+| ![Delivery time settings](screenshots/3-settings-delivery-time.png) | ![Placement settings](screenshots/4-settings-placement.png) |
+| **Appearance settings** with a live preview | **Per-product override** in the product data tab |
+| ![Appearance settings](screenshots/5-settings-appearance.png) | ![Estimated Delivery tab on a product](screenshots/6-product-tab.png) |
 
-* **Range or fixed days** – show a date range (minimum and maximum days) or a single date (fixed days).
-* **Skip weekends** – optionally leave Saturdays and Sundays out when counting days.
-* **Four levels of settings**
-  * Default: one estimate for the whole store (WooCommerce > Settings > Estimated Delivery).
-  * Category: overrides the default for every product in that category and its subcategories (Products > Categories).
-  * Product: overrides the category and the default (Product data > Estimated Delivery tab).
-  * Variation: overrides the product, category and default for one variation (Product data > Variations).
-* **Variations** – on variable products the estimate updates as soon as the shopper picks a variation.
-* **Hide per category, product or variation** – choose "Do not show an estimate" at any level.
-* **Product page position** – after the title, after the price, after the short description, before or after the add to cart button, after the product meta, after the summary, or shortcode only.
-* **Cart and checkout** – show the estimate under each product in the cart and in the checkout order summary. Each can be switched on or off. Works with both the classic shortcodes and the Cart and Checkout blocks.
-* **Order estimate after the total** – optionally show one combined estimate for the whole cart in a line after the total, on the cart and/or checkout page. Choose "earliest to latest" (earliest item minimum to latest item maximum) or "complete order" (when every item should have arrived). Use it together with the per-product estimates or on its own.
-* **Orders** – optionally save the estimate on each order item so it appears in the order admin and order emails.
-* **Shortcode** – `[dleta_estimate]` on a product page, or `[dleta_estimate id="123"]` anywhere.
-* **Icon** – choose a built-in icon (delivery truck, fast truck, package, calendar, clock, location pin), upload your own from the Media Library, or show none. Built-in icons can take any color.
-* **Styling** – change the font, text size, text color and date color, plus the icon size and color, with a live preview in the settings. Fonts come from your theme or the visitor's device; nothing is loaded from outside your site.
-* **Date format picker** – choose from ready-made formats (each shown with real example dates), use your site's date format, or type a custom one with a live preview.
-* Custom label, hide for out-of-stock products.
-* **WooCommerce Subscriptions** – works with simple and variable subscription products. Each renewal order gets a fresh estimate (can be switched off).
-* **WPML and Polylang** – includes a wpml-config.xml: estimates are copied to translated products and categories, and the label, order label and date format can be translated per language. Translations without their own setting fall back to the original's.
-* **RTL** – the settings and the storefront output work in right-to-left languages.
-* Compatible with High-Performance Order Storage (HPOS) and the Cart and Checkout blocks.
-* Translation ready.
+## Features
 
-= How the estimate is chosen =
+- **Range or fixed days.** Show a date range (minimum and maximum days) or a single date.
+- **Skip weekends.** Optionally leave Saturdays and Sundays out of the count.
+- **Four levels of settings.** Store default, category, product and variation. Each level overrides the one above it.
+- **Variations.** The estimate updates as soon as the shopper picks a variation.
+- **Hide anywhere.** Choose "Do not show an estimate" for a category, product or variation.
+- **Product page position.** After the title, price or short description, before or after the add to cart button, after the meta or summary, or shortcode only.
+- **Cart and checkout.** An estimate under each item, plus an optional combined estimate for the whole order after the total. Works with both the classic and the block-based Cart and Checkout.
+- **Orders.** Optionally save the estimate on each order item so it shows in the order admin and order emails.
+- **Shortcode.** `[dleta_estimate]` on a product page, or `[dleta_estimate id="123"]` anywhere.
+- **Icons and styling.** Built-in icons or your own, plus font, size, colors and date format, all with a live preview.
+- **Compatible with** HPOS, WooCommerce Subscriptions, WPML, Polylang and right-to-left languages.
 
-1. If a variation has its own setting, that is used for that variation.
-2. Otherwise, if the product has its own setting in the Estimated Delivery tab, that is used.
-3. Otherwise, if one of its categories (or a parent category) has a setting, that is used. If the product is in several categories with their own settings, the one with the latest delivery is used, so customers are never promised a date that is too early.
-4. Otherwise, the default setting is used.
+## How the estimate is chosen
 
-Days are counted from today in your site's timezone (Settings > General).
+1. A variation's own setting, if it has one.
+2. Otherwise the product's setting from its Estimated Delivery tab.
+3. Otherwise its category's (or a parent category's) setting. If several categories have one, the latest delivery wins, so customers are never promised a date that's too early.
+4. Otherwise the store default.
 
-= For developers =
+Days are counted from today in your site's timezone.
 
-* `dleta_start_date` – change the date counting starts from (for example to add an order cut-off time).
-* `dleta_is_skipped_day` – mark extra non-delivery days, such as public holidays.
-* `dleta_resolved_rule` – change which rule applies to a product.
-* `dleta_show_for_product` – show or hide the estimate for a product.
-* `dleta_formatted_dates`, `dleta_product_html`, `dleta_icon_html` – change the output.
-* `dleta_date_format_presets` – change the ready-made date formats offered in the settings.
-* `dleta_style_css` – change the generated styling. The estimate uses the CSS custom properties `--dleta-font`, `--dleta-size`, `--dleta-color`, `--dleta-date-color`, `--dleta-icon-size` and `--dleta-icon-color`, so themes can also override them in CSS.
-* `dleta_product_positions` – add product page positions.
-* `dleta_cart_context` – adjust cart/checkout detection.
-* `dleta_cart_dates` – change the combined cart estimate. The Cart and Checkout blocks receive it in the Store API cart response under `extensions.dleta`.
-
-== Installation ==
+## Installation
 
 1. Install and activate WooCommerce.
-2. Upload the plugin folder to `/wp-content/plugins/` or install it from Plugins > Add New.
-3. Activate Ultimate Estimated Delivery Date by BigLoop.
-4. Go to WooCommerce > Settings > Estimated Delivery to set the global estimate and choose where it appears.
-5. Optionally set estimates for categories (Products > Categories) or individual products (Product data > Estimated Delivery).
+2. Download this repository as a zip, then upload it under **Plugins > Add New > Upload Plugin** (or copy the folder to `/wp-content/plugins/`).
+3. Activate **Ultimate Estimated Delivery Date by BigLoop**.
+4. Go to **WooCommerce > Settings > Estimated Delivery** to set the default estimate and choose where it appears.
+5. Optionally set estimates per category (**Products > Categories**) or per product (**Product data > Estimated Delivery**).
 
-== Frequently Asked Questions ==
+## For developers
 
-= Does the plugin send any data outside my site? =
+| Filter | What it changes |
+| --- | --- |
+| `dleta_start_date` | The date counting starts from, e.g. to add an order cut-off time |
+| `dleta_is_skipped_day` | Marks extra non-delivery days, such as public holidays |
+| `dleta_resolved_rule` | Which rule applies to a product |
+| `dleta_show_for_product` | Whether the estimate shows for a product |
+| `dleta_formatted_dates`, `dleta_product_html`, `dleta_icon_html` | The output |
+| `dleta_date_format_presets` | The ready-made date formats in the settings |
+| `dleta_style_css` | The generated styling |
+| `dleta_product_positions` | Adds product page positions |
+| `dleta_cart_context` | Cart and checkout detection |
+| `dleta_cart_dates` | The combined cart estimate (exposed to blocks under `extensions.dleta` in the Store API cart response) |
 
-No. All calculations happen on your server. The plugin makes no external requests, loads no remote files and does not track anything.
+The estimate's styling uses the CSS custom properties `--dleta-font`, `--dleta-size`, `--dleta-color`, `--dleta-date-color`, `--dleta-icon-size` and `--dleta-icon-color`, so themes can override them directly.
 
-= The date does not change from day to day =
+## Privacy
 
-If you use a page cache, product pages may be cached with yesterday's date. Set your cache to expire at least once a day, or exclude product pages from the cache.
+The plugin collects no personal data, makes no external requests and loads no remote files.
 
-= My theme uses blocks. Where does the estimate appear? =
+## License
 
-WooCommerce runs the classic product page hooks inside its block templates, so the positions work in most block themes. If a position does not show in your theme, choose "Shortcode only" and add a Shortcode block with `[dleta_estimate]` where you want it.
-
-= Can I exclude public holidays? =
-
-Not from the settings screen yet. Developers can use the `dleta_is_skipped_day` filter.
-
-= How is the order estimate after the total calculated? =
-
-It looks at every product in the cart that shows an estimate. Example: item A takes 2–4 days and item B takes 5–7 days. "Earliest to latest" shows days 2–7. "Complete order" shows days 5–7, the window in which everything should have arrived. Virtual products and products set to "Do not show" are left out.
-
-= Where do I find the settings? =
-
-WooCommerce > Settings > Estimated Delivery. The settings are split into four sections: Delivery time (with a live calendar showing what customers will see), Placement (with wireframes of the product, cart and checkout pages showing exactly where the estimate appears), Appearance (with a live preview) and Advanced.
-
-= Can I use a Google Font or other web font? =
-
-Yes, if your theme (or a font plugin) already loads it. Choose "Custom" under Font and type the font name, for example `"Open Sans", sans-serif`. The plugin itself never loads fonts from outside your site.
-
-= Where do the font, size and color settings apply? =
-
-To the estimate on the product page and in the `[dleta_estimate]` shortcode. On the cart and checkout pages the estimate follows your theme's styling, so it matches the rest of the cart.
-
-= Does it work with WooCommerce Subscriptions? =
-
-Yes, with simple and variable subscription products. The estimate shows on the product page, in the cart and at checkout like any other product. The subscription itself does not store a date (it is not shipped); instead each renewal order gets a fresh estimate. You can switch that off under Placement > Orders and stock. Virtual subscriptions (for example memberships) show no estimate.
-
-= Does it work with WPML? =
-
-Yes. The plugin includes a wpml-config.xml. Estimates set on products, variations and categories are copied to their translations. Translate the label, the order label and the date format in WPML > String Translation; month and day names follow each language automatically.
-
-= Can I use my own icon? =
-
-Yes. Under WooCommerce > Settings > Estimated Delivery, set Icon to "Custom image (Media Library)" and choose an image. A small square SVG or PNG works best. The built-in icons follow your text color, or a color you pick.
-
-= What happens to virtual products? =
-
-Virtual products are not delivered, so no estimate is shown for them.
-
-= What happens to my data if I delete the plugin? =
-
-By default, settings are kept. To remove all settings and category/product estimates on deletion, tick "Uninstall" under WooCommerce > Settings > Estimated Delivery before deleting the plugin. Estimates already saved on orders are always kept as part of the order history.
-
-== Privacy ==
-
-This plugin does not collect, store or send any personal data, and makes no connections to external services.
-
-== Changelog ==
-
-= 1.0.0 =
-* First release.
-
-== Upgrade Notice ==
-
-= 1.0.0 =
-First release.
+[GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
