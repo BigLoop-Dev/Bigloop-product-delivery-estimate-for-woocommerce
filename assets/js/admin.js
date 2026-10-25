@@ -1,5 +1,5 @@
 /**
- * Ultimate Estimated Delivery Date by BigLoop - admin behaviour.
+ * BigLoop Product Delivery Estimate - admin behaviour.
  *
  * - Shows only the fields that apply (range vs single date, custom font, icon options).
  * - Keeps the wireframes, live example and preview in sync with the form.

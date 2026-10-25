@@ -2,7 +2,7 @@
 /**
  * Estimated delivery fields on Products > Categories.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -36,10 +36,10 @@ class Dleta_Category_Fields {
 	 */
 	private static function mode_options() {
 		return array(
-			''      => __( 'Use global setting', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'range' => __( 'Range (minimum and maximum days)', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'fixed' => __( 'Fixed number of days', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'none'  => __( 'Do not show an estimate', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			''      => __( 'Use global setting', 'bigloop-product-delivery-estimate' ),
+			'range' => __( 'Range (minimum and maximum days)', 'bigloop-product-delivery-estimate' ),
+			'fixed' => __( 'Fixed number of days', 'bigloop-product-delivery-estimate' ),
+			'none'  => __( 'Do not show an estimate', 'bigloop-product-delivery-estimate' ),
 		);
 	}
 
@@ -50,16 +50,16 @@ class Dleta_Category_Fields {
 	 */
 	private static function help_text() {
 		$levels = '<ul class="dleta-levels">'
-			. '<li>' . esc_html__( 'Default', 'ultimate-estimated-delivery-date-by-bigloop' ) . '</li>'
+			. '<li>' . esc_html__( 'Default', 'bigloop-product-delivery-estimate' ) . '</li>'
 			. '<li class="dleta-levels__sep" aria-hidden="true">&rarr;</li>'
-			. '<li class="is-active">' . esc_html__( 'This category', 'ultimate-estimated-delivery-date-by-bigloop' ) . '</li>'
+			. '<li class="is-active">' . esc_html__( 'This category', 'bigloop-product-delivery-estimate' ) . '</li>'
 			. '<li class="dleta-levels__sep" aria-hidden="true">&rarr;</li>'
-			. '<li>' . esc_html__( 'Product', 'ultimate-estimated-delivery-date-by-bigloop' ) . '</li>'
+			. '<li>' . esc_html__( 'Product', 'bigloop-product-delivery-estimate' ) . '</li>'
 			. '</ul>';
 
 		$text = sprintf(
 			/* translators: 1: default rule summary, 2: settings URL. */
-			wp_kses_post( __( 'Products in this category and its subcategories use this instead of the <a href="%2$s">default estimate</a> (currently %1$s). A product\'s own setting still wins.', 'ultimate-estimated-delivery-date-by-bigloop' ) ),
+			wp_kses_post( __( 'Products in this category and its subcategories use this instead of the <a href="%2$s">default estimate</a> (currently %1$s). A product\'s own setting still wins.', 'bigloop-product-delivery-estimate' ) ),
 			esc_html( Dleta_Rules::describe( Dleta_Rules::global_rule() ) ),
 			esc_url( Dleta_Admin::settings_url() )
 		);
@@ -74,26 +74,26 @@ class Dleta_Category_Fields {
 		wp_nonce_field( self::NONCE, self::NONCE );
 		?>
 		<div class="form-field dleta-term-fields">
-			<label for="dleta_mode"><?php esc_html_e( 'Estimated delivery', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label>
+			<label for="dleta_mode"><?php esc_html_e( 'Estimated delivery', 'bigloop-product-delivery-estimate' ); ?></label>
 			<?php self::mode_select( '' ); ?>
 			<?php echo self::help_text(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in help_text(). ?>
 		</div>
 		<div class="form-field dleta-show-range">
-			<label for="dleta_min_days"><?php esc_html_e( 'Minimum days', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label>
+			<label for="dleta_min_days"><?php esc_html_e( 'Minimum days', 'bigloop-product-delivery-estimate' ); ?></label>
 			<?php self::number_input( 'dleta_min_days', '' ); ?>
 		</div>
 		<div class="form-field dleta-show-range">
-			<label for="dleta_max_days"><?php esc_html_e( 'Maximum days', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label>
+			<label for="dleta_max_days"><?php esc_html_e( 'Maximum days', 'bigloop-product-delivery-estimate' ); ?></label>
 			<?php self::number_input( 'dleta_max_days', '' ); ?>
 		</div>
 		<div class="form-field dleta-show-fixed">
-			<label for="dleta_fixed_days"><?php esc_html_e( 'Fixed days', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label>
+			<label for="dleta_fixed_days"><?php esc_html_e( 'Fixed days', 'bigloop-product-delivery-estimate' ); ?></label>
 			<?php self::number_input( 'dleta_fixed_days', '' ); ?>
 		</div>
 		<div class="form-field dleta-show-rule">
 			<label for="dleta_exclude_weekends">
 				<input type="checkbox" id="dleta_exclude_weekends" name="dleta_exclude_weekends" value="yes" />
-				<?php esc_html_e( 'Exclude Saturdays and Sundays when counting days', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>
+				<?php esc_html_e( 'Exclude Saturdays and Sundays when counting days', 'bigloop-product-delivery-estimate' ); ?>
 			</label>
 		</div>
 		<?php
@@ -112,7 +112,7 @@ class Dleta_Category_Fields {
 		$weekend = 'yes' === get_term_meta( $term->term_id, Dleta_Rules::META_WEEKEND, true );
 		?>
 		<tr class="form-field dleta-term-fields">
-			<th scope="row"><label for="dleta_mode"><?php esc_html_e( 'Estimated delivery', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label></th>
+			<th scope="row"><label for="dleta_mode"><?php esc_html_e( 'Estimated delivery', 'bigloop-product-delivery-estimate' ); ?></label></th>
 			<td>
 				<?php wp_nonce_field( self::NONCE, self::NONCE ); ?>
 				<?php self::mode_select( $mode ); ?>
@@ -120,23 +120,23 @@ class Dleta_Category_Fields {
 			</td>
 		</tr>
 		<tr class="form-field dleta-show-range">
-			<th scope="row"><label for="dleta_min_days"><?php esc_html_e( 'Minimum days', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label></th>
+			<th scope="row"><label for="dleta_min_days"><?php esc_html_e( 'Minimum days', 'bigloop-product-delivery-estimate' ); ?></label></th>
 			<td><?php self::number_input( 'dleta_min_days', $min ); ?></td>
 		</tr>
 		<tr class="form-field dleta-show-range">
-			<th scope="row"><label for="dleta_max_days"><?php esc_html_e( 'Maximum days', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label></th>
+			<th scope="row"><label for="dleta_max_days"><?php esc_html_e( 'Maximum days', 'bigloop-product-delivery-estimate' ); ?></label></th>
 			<td><?php self::number_input( 'dleta_max_days', $max ); ?></td>
 		</tr>
 		<tr class="form-field dleta-show-fixed">
-			<th scope="row"><label for="dleta_fixed_days"><?php esc_html_e( 'Fixed days', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label></th>
+			<th scope="row"><label for="dleta_fixed_days"><?php esc_html_e( 'Fixed days', 'bigloop-product-delivery-estimate' ); ?></label></th>
 			<td><?php self::number_input( 'dleta_fixed_days', $fixed ); ?></td>
 		</tr>
 		<tr class="form-field dleta-show-rule">
-			<th scope="row"><?php esc_html_e( 'Weekends', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></th>
+			<th scope="row"><?php esc_html_e( 'Weekends', 'bigloop-product-delivery-estimate' ); ?></th>
 			<td>
 				<label for="dleta_exclude_weekends">
 					<input type="checkbox" id="dleta_exclude_weekends" name="dleta_exclude_weekends" value="yes" <?php checked( $weekend ); ?> />
-					<?php esc_html_e( 'Exclude Saturdays and Sundays when counting days', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>
+					<?php esc_html_e( 'Exclude Saturdays and Sundays when counting days', 'bigloop-product-delivery-estimate' ); ?>
 				</label>
 			</td>
 		</tr>
@@ -233,7 +233,7 @@ class Dleta_Category_Fields {
 	 * @return array
 	 */
 	public static function add_column( $columns ) {
-		$columns['dleta'] = __( 'Estimated Delivery', 'ultimate-estimated-delivery-date-by-bigloop' );
+		$columns['dleta'] = __( 'Estimated Delivery', 'bigloop-product-delivery-estimate' );
 		return $columns;
 	}
 
@@ -252,7 +252,7 @@ class Dleta_Category_Fields {
 
 		$rule = Dleta_Rules::term_rule( $term_id );
 		if ( null === $rule ) {
-			return '<span class="dleta-muted">' . esc_html__( 'Global', 'ultimate-estimated-delivery-date-by-bigloop' ) . '</span>';
+			return '<span class="dleta-muted">' . esc_html__( 'Global', 'bigloop-product-delivery-estimate' ) . '</span>';
 		}
 
 		return esc_html( Dleta_Rules::describe( $rule ) );

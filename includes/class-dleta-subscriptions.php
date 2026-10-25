@@ -10,7 +10,7 @@
  *   (see Dleta_Frontend::add_order_item_meta()).
  * - Each renewal order gets a fresh estimate based on the renewal date.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;

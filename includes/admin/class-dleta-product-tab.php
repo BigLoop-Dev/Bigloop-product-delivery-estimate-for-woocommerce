@@ -2,7 +2,7 @@
 /**
  * "Estimated Delivery" tab in the Product data box.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -34,7 +34,7 @@ class Dleta_Product_Tab {
 	 */
 	public static function add_tab( $tabs ) {
 		$tabs['dleta'] = array(
-			'label'    => __( 'Estimated Delivery', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'label'    => __( 'Estimated Delivery', 'bigloop-product-delivery-estimate' ),
 			'target'   => 'dleta_product_data',
 			'class'    => array(),
 			'priority' => 75,
@@ -57,11 +57,11 @@ class Dleta_Product_Tab {
 			$rule = 'none' === $category['rule']['mode'] ? null : $category['rule'];
 
 			/* translators: 1: category name, 2: rule summary. */
-			return sprintf( __( 'Without a product setting, this product uses its category "%1$s": %2$s.', 'ultimate-estimated-delivery-date-by-bigloop' ), $name, Dleta_Rules::describe( $rule ) );
+			return sprintf( __( 'Without a product setting, this product uses its category "%1$s": %2$s.', 'bigloop-product-delivery-estimate' ), $name, Dleta_Rules::describe( $rule ) );
 		}
 
 		/* translators: %s: rule summary. */
-		return sprintf( __( 'Without a product setting, this product uses the global setting: %s.', 'ultimate-estimated-delivery-date-by-bigloop' ), Dleta_Rules::describe( Dleta_Rules::global_rule() ) );
+		return sprintf( __( 'Without a product setting, this product uses the global setting: %s.', 'bigloop-product-delivery-estimate' ), Dleta_Rules::describe( Dleta_Rules::global_rule() ) );
 	}
 
 	/**
@@ -72,13 +72,13 @@ class Dleta_Product_Tab {
 	private static function levels_box( $product_id ) {
 		$own      = Dleta_Rules::product_rule( $product_id );
 		$category = Dleta_Rules::category_rule_for_product( $product_id );
-		$cat_name = __( 'Category', 'ultimate-estimated-delivery-date-by-bigloop' );
+		$cat_name = __( 'Category', 'bigloop-product-delivery-estimate' );
 
 		if ( null !== $category ) {
 			$term = get_term( $category['term_id'], 'product_cat' );
 			if ( $term && ! is_wp_error( $term ) ) {
 				/* translators: %s: category name. */
-				$cat_name = sprintf( __( 'Category: %s', 'ultimate-estimated-delivery-date-by-bigloop' ), $term->name );
+				$cat_name = sprintf( __( 'Category: %s', 'bigloop-product-delivery-estimate' ), $term->name );
 			}
 		}
 
@@ -91,13 +91,13 @@ class Dleta_Product_Tab {
 		}
 
 		$levels = array(
-			'default'  => __( 'Default', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'default'  => __( 'Default', 'bigloop-product-delivery-estimate' ),
 			'category' => $cat_name,
-			'product'  => __( 'This product', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'product'  => __( 'This product', 'bigloop-product-delivery-estimate' ),
 		);
 		?>
 		<div class="dleta-box">
-			<ul class="dleta-levels" aria-label="<?php esc_attr_e( 'Which setting applies', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>">
+			<ul class="dleta-levels" aria-label="<?php esc_attr_e( 'Which setting applies', 'bigloop-product-delivery-estimate' ); ?>">
 				<?php
 				$first = true;
 				foreach ( $levels as $key => $label ) {
@@ -114,7 +114,7 @@ class Dleta_Product_Tab {
 				}
 				?>
 			</ul>
-			<p><?php esc_html_e( 'A setting here beats the category and the default for this product. For variable products, each variation can also override it under Variations.', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></p>
+			<p><?php esc_html_e( 'A setting here beats the category and the default for this product. For variable products, each variation can also override it under Variations.', 'bigloop-product-delivery-estimate' ); ?></p>
 			<p class="dleta-box__current"><?php echo esc_html( self::inherited_summary( $product_id ) ); ?></p>
 		</div>
 		<?php
@@ -143,14 +143,14 @@ class Dleta_Product_Tab {
 				woocommerce_wp_select(
 					array(
 						'id'      => 'dleta_mode',
-						'label'   => __( 'Estimated delivery', 'ultimate-estimated-delivery-date-by-bigloop' ),
+						'label'   => __( 'Estimated delivery', 'bigloop-product-delivery-estimate' ),
 						'class'   => 'select short dleta-mode-select',
 						'value'   => $mode,
 						'options' => array(
-							''      => __( 'Use category / global setting', 'ultimate-estimated-delivery-date-by-bigloop' ),
-							'range' => __( 'Range (minimum and maximum days)', 'ultimate-estimated-delivery-date-by-bigloop' ),
-							'fixed' => __( 'Fixed number of days', 'ultimate-estimated-delivery-date-by-bigloop' ),
-							'none'  => __( 'Do not show an estimate', 'ultimate-estimated-delivery-date-by-bigloop' ),
+							''      => __( 'Use category / global setting', 'bigloop-product-delivery-estimate' ),
+							'range' => __( 'Range (minimum and maximum days)', 'bigloop-product-delivery-estimate' ),
+							'fixed' => __( 'Fixed number of days', 'bigloop-product-delivery-estimate' ),
+							'none'  => __( 'Do not show an estimate', 'bigloop-product-delivery-estimate' ),
 						),
 					)
 				);
@@ -158,7 +158,7 @@ class Dleta_Product_Tab {
 				woocommerce_wp_text_input(
 					array(
 						'id'                => 'dleta_min_days',
-						'label'             => __( 'Minimum days', 'ultimate-estimated-delivery-date-by-bigloop' ),
+						'label'             => __( 'Minimum days', 'bigloop-product-delivery-estimate' ),
 						'type'              => 'number',
 						'value'             => get_post_meta( $product_id, Dleta_Rules::META_MIN, true ),
 						'wrapper_class'     => 'dleta-show-range',
@@ -169,7 +169,7 @@ class Dleta_Product_Tab {
 				woocommerce_wp_text_input(
 					array(
 						'id'                => 'dleta_max_days',
-						'label'             => __( 'Maximum days', 'ultimate-estimated-delivery-date-by-bigloop' ),
+						'label'             => __( 'Maximum days', 'bigloop-product-delivery-estimate' ),
 						'type'              => 'number',
 						'value'             => get_post_meta( $product_id, Dleta_Rules::META_MAX, true ),
 						'wrapper_class'     => 'dleta-show-range',
@@ -180,7 +180,7 @@ class Dleta_Product_Tab {
 				woocommerce_wp_text_input(
 					array(
 						'id'                => 'dleta_fixed_days',
-						'label'             => __( 'Fixed days', 'ultimate-estimated-delivery-date-by-bigloop' ),
+						'label'             => __( 'Fixed days', 'bigloop-product-delivery-estimate' ),
 						'type'              => 'number',
 						'value'             => get_post_meta( $product_id, Dleta_Rules::META_FIXED, true ),
 						'wrapper_class'     => 'dleta-show-fixed',
@@ -191,8 +191,8 @@ class Dleta_Product_Tab {
 				woocommerce_wp_checkbox(
 					array(
 						'id'            => 'dleta_exclude_weekends',
-						'label'         => __( 'Weekends', 'ultimate-estimated-delivery-date-by-bigloop' ),
-						'description'   => __( 'Exclude Saturdays and Sundays when counting days', 'ultimate-estimated-delivery-date-by-bigloop' ),
+						'label'         => __( 'Weekends', 'bigloop-product-delivery-estimate' ),
+						'description'   => __( 'Exclude Saturdays and Sundays when counting days', 'bigloop-product-delivery-estimate' ),
 						'value'         => get_post_meta( $product_id, Dleta_Rules::META_WEEKEND, true ),
 						'cbvalue'       => 'yes',
 						'wrapper_class' => 'dleta-show-rule',

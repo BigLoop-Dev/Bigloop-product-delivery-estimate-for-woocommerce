@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:          Ultimate Estimated Delivery Date by BigLoop
- * Plugin URI:           https://wordpress.org/plugins/ultimate-estimated-delivery-date-by-bigloop/
+ * Plugin Name:          BigLoop Product Delivery Estimate
+ * Plugin URI:           https://wordpress.org/plugins/bigloop-product-delivery-estimate/
  * Description:          Show an estimated delivery date on product, cart and checkout pages. Set it globally, per category, per product or per variation, with weekend skipping. Supports WooCommerce Subscriptions, WPML and RTL.
  * Version:              1.0.0
  * Requires at least:    6.5
@@ -11,11 +11,11 @@
  * Author URI:           https://bigloop.dev/
  * License:              GPLv2 or later
  * License URI:          https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:          ultimate-estimated-delivery-date-by-bigloop
+ * Text Domain:          bigloop-product-delivery-estimate
  * WC requires at least: 8.0
  * WC tested up to:      11.1
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;

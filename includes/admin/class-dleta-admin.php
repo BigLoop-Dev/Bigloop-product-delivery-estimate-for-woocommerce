@@ -6,7 +6,7 @@
  * Advanced). Layout pieces such as cards, wireframes and previews are custom
  * WooCommerce field types rendered by Dleta_Admin_UI.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -66,10 +66,10 @@ class Dleta_Admin {
 	 */
 	public static function sections() {
 		return array(
-			''           => __( 'Delivery time', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'placement'  => __( 'Placement', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'appearance' => __( 'Appearance', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'advanced'   => __( 'Advanced', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			''           => __( 'Delivery time', 'bigloop-product-delivery-estimate' ),
+			'placement'  => __( 'Placement', 'bigloop-product-delivery-estimate' ),
+			'appearance' => __( 'Appearance', 'bigloop-product-delivery-estimate' ),
+			'advanced'   => __( 'Advanced', 'bigloop-product-delivery-estimate' ),
 		);
 	}
 
@@ -121,7 +121,7 @@ class Dleta_Admin {
 	 * @return array
 	 */
 	public static function add_tab( $tabs ) {
-		$tabs[ self::TAB ] = __( 'Estimated Delivery', 'ultimate-estimated-delivery-date-by-bigloop' );
+		$tabs[ self::TAB ] = __( 'Estimated Delivery', 'bigloop-product-delivery-estimate' );
 		return $tabs;
 	}
 
@@ -333,7 +333,7 @@ class Dleta_Admin {
 				'max'  => (string) Dleta_Rules::MAX_DAYS,
 				'step' => '1',
 			),
-			'desc'              => __( 'days', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'desc'              => __( 'days', 'bigloop-product-delivery-estimate' ),
 			'desc_tip'          => $tip,
 		);
 	}
@@ -352,29 +352,29 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Default delivery time', 'ultimate-estimated-delivery-date-by-bigloop' ),
-					'desc'  => __( 'Used for every product that has no category or product estimate of its own.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Default delivery time', 'bigloop-product-delivery-estimate' ),
+					'desc'  => __( 'Used for every product that has no category or product estimate of its own.', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'clock',
 					'split' => true,
 				)
 			),
 			array(
-				'title'   => __( 'Show as', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Show as', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_mode',
 				'type'    => 'radio',
 				'class'   => 'dleta-mode-radio',
 				'default' => $defaults['dleta_mode'],
 				'options' => array(
-					'range' => __( 'Date range — e.g. "Thu, Oct 22 – Mon, Oct 26"', 'ultimate-estimated-delivery-date-by-bigloop' ),
-					'fixed' => __( 'Single date — e.g. "Thu, Oct 22"', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'range' => __( 'Date range — e.g. "Thu, Oct 22 – Mon, Oct 26"', 'bigloop-product-delivery-estimate' ),
+					'fixed' => __( 'Single date — e.g. "Thu, Oct 22"', 'bigloop-product-delivery-estimate' ),
 				),
 			),
-			self::days_field( 'dleta_min_days', __( 'Earliest delivery', 'ultimate-estimated-delivery-date-by-bigloop' ), 'dleta-show-range', __( 'Days from today until the earliest delivery.', 'ultimate-estimated-delivery-date-by-bigloop' ) ),
-			self::days_field( 'dleta_max_days', __( 'Latest delivery', 'ultimate-estimated-delivery-date-by-bigloop' ), 'dleta-show-range', __( 'Days from today until the latest delivery.', 'ultimate-estimated-delivery-date-by-bigloop' ) ),
-			self::days_field( 'dleta_fixed_days', __( 'Delivery in', 'ultimate-estimated-delivery-date-by-bigloop' ), 'dleta-show-fixed', __( 'Days from today until delivery.', 'ultimate-estimated-delivery-date-by-bigloop' ) ),
+			self::days_field( 'dleta_min_days', __( 'Earliest delivery', 'bigloop-product-delivery-estimate' ), 'dleta-show-range', __( 'Days from today until the earliest delivery.', 'bigloop-product-delivery-estimate' ) ),
+			self::days_field( 'dleta_max_days', __( 'Latest delivery', 'bigloop-product-delivery-estimate' ), 'dleta-show-range', __( 'Days from today until the latest delivery.', 'bigloop-product-delivery-estimate' ) ),
+			self::days_field( 'dleta_fixed_days', __( 'Delivery in', 'bigloop-product-delivery-estimate' ), 'dleta-show-fixed', __( 'Days from today until delivery.', 'bigloop-product-delivery-estimate' ) ),
 			array(
-				'title'   => __( 'Skip weekends', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Don\'t count Saturdays and Sundays', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Skip weekends', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Don\'t count Saturdays and Sundays', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_exclude_weekends',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_exclude_weekends'],
@@ -395,21 +395,21 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Product page', 'ultimate-estimated-delivery-date-by-bigloop' ),
-					'desc'  => __( 'Pick a spot from the list, or click a dashed line in the wireframe.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Product page', 'bigloop-product-delivery-estimate' ),
+					'desc'  => __( 'Pick a spot from the list, or click a dashed line in the wireframe.', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'box',
 					'split' => true,
 				)
 			),
 			array(
-				'title'   => __( 'Show on product pages', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Display the estimate on single product pages', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Show on product pages', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Display the estimate on single product pages', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_product_enabled',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_product_enabled'],
 			),
 			array(
-				'title'   => __( 'Position', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Position', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_product_position',
 				'type'    => 'select',
 				'class'   => 'dleta-position-select',
@@ -421,7 +421,7 @@ class Dleta_Admin {
 				array(
 					'html' => sprintf(
 						/* translators: 1: shortcode, 2: shortcode with product ID. */
-						esc_html__( 'Need it somewhere else? Use %1$s on a product page or %2$s anywhere.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+						esc_html__( 'Need it somewhere else? Use %1$s on a product page or %2$s anywhere.', 'bigloop-product-delivery-estimate' ),
 						'<code>[dleta_estimate]</code>',
 						'<code>[dleta_estimate id="123"]</code>'
 					),
@@ -432,22 +432,22 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Cart page', 'ultimate-estimated-delivery-date-by-bigloop' ),
-					'desc'  => __( 'Works with the classic cart and the Cart block.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Cart page', 'bigloop-product-delivery-estimate' ),
+					'desc'  => __( 'Works with the classic cart and the Cart block.', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'cart',
 					'split' => true,
 				)
 			),
 			array(
-				'title'   => __( 'Under each product', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Show the estimate below every item', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Under each product', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Show the estimate below every item', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_cart_enabled',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_cart_enabled'],
 			),
 			array(
-				'title'   => __( 'After the total', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Show one combined estimate for the whole order', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'After the total', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Show one combined estimate for the whole order', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_cart_total_enabled',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_cart_total_enabled'],
@@ -457,22 +457,22 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Checkout page', 'ultimate-estimated-delivery-date-by-bigloop' ),
-					'desc'  => __( 'Works with the classic checkout and the Checkout block.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Checkout page', 'bigloop-product-delivery-estimate' ),
+					'desc'  => __( 'Works with the classic checkout and the Checkout block.', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'card',
 					'split' => true,
 				)
 			),
 			array(
-				'title'   => __( 'Under each product', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Show the estimate below every item in the order summary', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Under each product', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Show the estimate below every item in the order summary', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_checkout_enabled',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_checkout_enabled'],
 			),
 			array(
-				'title'   => __( 'After the total', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Show one combined estimate for the whole order', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'After the total', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Show one combined estimate for the whole order', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_checkout_total_enabled',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_checkout_total_enabled'],
@@ -482,21 +482,21 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Combined order estimate', 'ultimate-estimated-delivery-date-by-bigloop' ),
-					'desc'  => __( 'The line after the total on the cart and checkout pages. Example: item A takes 2–4 days and item B 5–7 days. "Earliest to latest" shows days 2–7; "Complete order" shows days 5–7.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Combined order estimate', 'bigloop-product-delivery-estimate' ),
+					'desc'  => __( 'The line after the total on the cart and checkout pages. Example: item A takes 2–4 days and item B 5–7 days. "Earliest to latest" shows days 2–7; "Complete order" shows days 5–7.', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'calendar',
 					'class' => 'dleta-card--order-total',
 				)
 			),
 			array(
-				'title'   => __( 'Calculation', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Calculation', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_total_mode',
 				'type'    => 'radio',
 				'default' => $defaults['dleta_total_mode'],
 				'options' => Dleta_Order_Estimate::mode_labels(),
 			),
 			array(
-				'title'   => __( 'Label', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Label', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_total_label',
 				'type'    => 'text',
 				'default' => $defaults['dleta_total_label'],
@@ -507,27 +507,27 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Orders and stock', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Orders and stock', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'pin',
 				)
 			),
 			array(
-				'title'   => __( 'Save on orders', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Store the estimate on each order item, so it appears in the order admin and order emails', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Save on orders', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Store the estimate on each order item, so it appears in the order admin and order emails', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_order_enabled',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_order_enabled'],
 			),
 			Dleta_Subscriptions::is_active() ? array(
-				'title'   => __( 'Subscription renewals', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Add a fresh estimate to each renewal order (WooCommerce Subscriptions)', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Subscription renewals', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Add a fresh estimate to each renewal order (WooCommerce Subscriptions)', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_subs_renewal',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_subs_renewal'],
 			) : null,
 			array(
-				'title'   => __( 'Out of stock', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Hide the estimate for out-of-stock products', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Out of stock', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Hide the estimate for out-of-stock products', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_hide_out_of_stock',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_hide_out_of_stock'],
@@ -548,49 +548,49 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Look and feel', 'ultimate-estimated-delivery-date-by-bigloop' ),
-					'desc'  => __( 'Applies to the product page and the shortcode. Empty fields follow your theme.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Look and feel', 'bigloop-product-delivery-estimate' ),
+					'desc'  => __( 'Applies to the product page and the shortcode. Empty fields follow your theme.', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'brush',
 					'split' => true,
 				)
 			),
-			self::ui( 'subhead', array( 'title' => __( 'Text', 'ultimate-estimated-delivery-date-by-bigloop' ) ) ),
+			self::ui( 'subhead', array( 'title' => __( 'Text', 'bigloop-product-delivery-estimate' ) ) ),
 			array(
-				'title'   => __( 'Label', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Label', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_label',
 				'type'    => 'text',
 				'default' => $defaults['dleta_label'],
 				'class'   => 'regular-text',
 			),
 			array(
-				'title'   => __( 'Date format', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Date format', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_date_format',
 				'type'    => 'dleta_date_format',
 				'default' => $defaults['dleta_date_format'],
 			),
 			array(
-				'title'   => __( 'Font', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Font', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_font_family',
 				'type'    => 'select',
 				'default' => $defaults['dleta_font_family'],
 				'options' => wp_list_pluck( Dleta_Frontend::font_choices(), 'label' ),
 			),
 			array(
-				'title'       => __( 'Font name', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'       => __( 'Font name', 'bigloop-product-delivery-estimate' ),
 				'id'          => 'dleta_font_custom',
 				'type'        => 'text',
 				'default'     => $defaults['dleta_font_custom'],
 				'class'       => 'regular-text',
 				'placeholder' => '"Open Sans", sans-serif',
-				'desc'        => __( 'A font your theme or another plugin already loads. Nothing is loaded from outside your site.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'desc'        => __( 'A font your theme or another plugin already loads. Nothing is loaded from outside your site.', 'bigloop-product-delivery-estimate' ),
 			),
 			array(
-				'title'             => __( 'Size', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'             => __( 'Size', 'bigloop-product-delivery-estimate' ),
 				'id'                => 'dleta_font_size',
 				'type'              => 'number',
 				'default'           => $defaults['dleta_font_size'],
 				'class'             => 'dleta-input-px',
-				'placeholder'       => __( 'Auto', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'placeholder'       => __( 'Auto', 'bigloop-product-delivery-estimate' ),
 				'custom_attributes' => array(
 					'min'  => '8',
 					'max'  => '96',
@@ -599,40 +599,40 @@ class Dleta_Admin {
 				'desc'              => 'px',
 			),
 			array(
-				'title'   => __( 'Text color', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Text color', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_text_color',
 				'type'    => 'color',
 				'default' => $defaults['dleta_text_color'],
 				'css'     => 'width:7em;',
 			),
 			array(
-				'title'   => __( 'Date color', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Date color', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_date_color',
 				'type'    => 'color',
 				'default' => $defaults['dleta_date_color'],
 				'css'     => 'width:7em;',
 			),
-			self::ui( 'subhead', array( 'title' => __( 'Icon', 'ultimate-estimated-delivery-date-by-bigloop' ) ) ),
+			self::ui( 'subhead', array( 'title' => __( 'Icon', 'bigloop-product-delivery-estimate' ) ) ),
 			array(
-				'title'   => __( 'Icon', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Icon', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_icon',
 				'type'    => 'dleta_icon_picker',
 				'default' => $defaults['dleta_icon'],
 			),
 			array(
-				'title'   => __( 'Your image', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Your image', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_icon_custom',
 				'type'    => 'dleta_media',
 				'default' => $defaults['dleta_icon_custom'],
-				'desc'    => __( 'A small square SVG or PNG works best.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'desc'    => __( 'A small square SVG or PNG works best.', 'bigloop-product-delivery-estimate' ),
 			),
 			array(
-				'title'             => __( 'Size', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'             => __( 'Size', 'bigloop-product-delivery-estimate' ),
 				'id'                => 'dleta_icon_size',
 				'type'              => 'number',
 				'default'           => $defaults['dleta_icon_size'],
 				'class'             => 'dleta-input-px',
-				'placeholder'       => __( 'Auto', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'placeholder'       => __( 'Auto', 'bigloop-product-delivery-estimate' ),
 				'custom_attributes' => array(
 					'min'  => '8',
 					'max'  => '96',
@@ -641,7 +641,7 @@ class Dleta_Admin {
 				'desc'              => 'px',
 			),
 			array(
-				'title'   => __( 'Icon color', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'Icon color', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_icon_color',
 				'type'    => 'color',
 				'default' => $defaults['dleta_icon_color'],
@@ -663,8 +663,8 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Shortcode', 'ultimate-estimated-delivery-date-by-bigloop' ),
-					'desc'  => __( 'Place the estimate anywhere: page builders, product descriptions, widgets or block themes.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Shortcode', 'bigloop-product-delivery-estimate' ),
+					'desc'  => __( 'Place the estimate anywhere: page builders, product descriptions, widgets or block themes.', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'code',
 				)
 			),
@@ -674,13 +674,13 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Data', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Data', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'database',
 				)
 			),
 			array(
-				'title'   => __( 'When deleting the plugin', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'desc'    => __( 'Also delete all settings and the category and product estimates', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title'   => __( 'When deleting the plugin', 'bigloop-product-delivery-estimate' ),
+				'desc'    => __( 'Also delete all settings and the category and product estimates', 'bigloop-product-delivery-estimate' ),
 				'id'      => 'dleta_delete_data',
 				'type'    => 'checkbox',
 				'default' => $defaults['dleta_delete_data'],
@@ -688,7 +688,7 @@ class Dleta_Admin {
 			self::ui(
 				'info',
 				array(
-					'html' => esc_html__( 'Estimates already saved on orders are always kept, because they are part of the order history.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'html' => esc_html__( 'Estimates already saved on orders are always kept, because they are part of the order history.', 'bigloop-product-delivery-estimate' ),
 				)
 			),
 			self::ui( 'card_end' ),
@@ -696,14 +696,14 @@ class Dleta_Admin {
 			self::ui(
 				'card_start',
 				array(
-					'title' => __( 'Privacy', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'title' => __( 'Privacy', 'bigloop-product-delivery-estimate' ),
 					'icon'  => 'shield',
 				)
 			),
 			self::ui(
 				'info',
 				array(
-					'html' => esc_html__( 'This plugin works entirely inside your site. It makes no external requests, loads no remote files, and collects no data.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					'html' => esc_html__( 'This plugin works entirely inside your site. It makes no external requests, loads no remote files, and collects no data.', 'bigloop-product-delivery-estimate' ),
 				)
 			),
 			self::ui( 'card_end' ),
@@ -745,8 +745,8 @@ class Dleta_Admin {
 				wp_enqueue_media();
 				$data['previewNonce'] = wp_create_nonce( 'dleta_format_preview' );
 				$data['ajaxUrl']      = admin_url( 'admin-ajax.php' );
-				$data['mediaTitle']   = __( 'Choose a delivery icon', 'ultimate-estimated-delivery-date-by-bigloop' );
-				$data['mediaButton']  = __( 'Use this icon', 'ultimate-estimated-delivery-date-by-bigloop' );
+				$data['mediaTitle']   = __( 'Choose a delivery icon', 'bigloop-product-delivery-estimate' );
+				$data['mediaButton']  = __( 'Use this icon', 'bigloop-product-delivery-estimate' );
 				break;
 			case '':
 				$data['calendar'] = Dleta_Admin_UI::calendar_data();
@@ -768,7 +768,7 @@ class Dleta_Admin {
 			sprintf(
 				'<a href="%s">%s</a>',
 				esc_url( self::settings_url() ),
-				esc_html__( 'Settings', 'ultimate-estimated-delivery-date-by-bigloop' )
+				esc_html__( 'Settings', 'bigloop-product-delivery-estimate' )
 			)
 		);
 		return $links;

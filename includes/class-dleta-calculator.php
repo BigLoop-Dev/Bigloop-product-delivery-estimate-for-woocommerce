@@ -2,7 +2,7 @@
 /**
  * Turns a delivery rule into dates.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -128,7 +128,7 @@ class Dleta_Calculator {
 			$text = $min;
 		} else {
 			/* translators: 1: earliest delivery date, 2: latest delivery date. */
-			$text = sprintf( __( '%1$s – %2$s', 'ultimate-estimated-delivery-date-by-bigloop' ), $min, $max );
+			$text = sprintf( __( '%1$s – %2$s', 'bigloop-product-delivery-estimate' ), $min, $max );
 		}
 
 		/**

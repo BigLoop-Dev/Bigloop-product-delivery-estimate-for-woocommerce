@@ -4,7 +4,7 @@
  * wireframes, previews and pickers. Each is a custom WooCommerce settings
  * field type ("dleta_*") so it can sit between normal fields.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -107,19 +107,19 @@ class Dleta_Admin_UI {
 				<span class="dleta-header__logo" aria-hidden="true"><span class="dleta-estimate__icon dleta-icon--fast"></span></span>
 				<div>
 					<h2 class="dleta-header__title">
-						<?php esc_html_e( 'Ultimate Estimated Delivery Date', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>
+						<?php esc_html_e( 'BigLoop Product Delivery Estimate', 'bigloop-product-delivery-estimate' ); ?>
 						<span class="dleta-header__version"><?php echo esc_html( DLETA_VERSION ); ?></span>
 					</h2>
-					<p class="dleta-header__tagline"><?php esc_html_e( 'Show customers when their order will arrive.', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></p>
+					<p class="dleta-header__tagline"><?php esc_html_e( 'Show customers when their order will arrive.', 'bigloop-product-delivery-estimate' ); ?></p>
 				</div>
 			</div>
 			<div class="dleta-header__meta">
-				<span class="dleta-badge"><?php esc_html_e( '100% free', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
-				<span class="dleta-badge"><?php esc_html_e( 'No external connections', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
-				<a class="dleta-header__by" href="<?php echo esc_url( 'https://bigloop.dev/' ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'by BigLoop', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></a>
+				<span class="dleta-badge"><?php esc_html_e( '100% free', 'bigloop-product-delivery-estimate' ); ?></span>
+				<span class="dleta-badge"><?php esc_html_e( 'No external connections', 'bigloop-product-delivery-estimate' ); ?></span>
+				<a class="dleta-header__by" href="<?php echo esc_url( 'https://bigloop.dev/' ); ?>" target="_blank" rel="noopener noreferrer"><?php esc_html_e( 'by BigLoop', 'bigloop-product-delivery-estimate' ); ?></a>
 			</div>
 		</div>
-		<nav class="dleta-nav" aria-label="<?php esc_attr_e( 'Estimated delivery settings sections', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>">
+		<nav class="dleta-nav" aria-label="<?php esc_attr_e( 'Estimated delivery settings sections', 'bigloop-product-delivery-estimate' ); ?>">
 			<?php
 			$step = 0;
 			foreach ( Dleta_Admin::sections() as $id => $label ) {
@@ -268,33 +268,33 @@ class Dleta_Admin_UI {
 
 		$steps = array(
 			array(
-				'title' => __( 'Variation', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'where' => __( 'Edit product → Variations → a variation', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title' => __( 'Variation', 'bigloop-product-delivery-estimate' ),
+				'where' => __( 'Edit product → Variations → a variation', 'bigloop-product-delivery-estimate' ),
 				/* translators: %d: number of variations. */
-				'count' => sprintf( _n( '%d variation has its own', '%d variations have their own', $variations, 'ultimate-estimated-delivery-date-by-bigloop' ), $variations ),
+				'count' => sprintf( _n( '%d variation has its own', '%d variations have their own', $variations, 'bigloop-product-delivery-estimate' ), $variations ),
 				'link'  => '',
 				'class' => '',
 			),
 			array(
-				'title' => __( 'Product', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'where' => __( 'Edit product → Product data → Estimated Delivery', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title' => __( 'Product', 'bigloop-product-delivery-estimate' ),
+				'where' => __( 'Edit product → Product data → Estimated Delivery', 'bigloop-product-delivery-estimate' ),
 				/* translators: %d: number of products. */
-				'count' => sprintf( _n( '%d product has its own', '%d products have their own', $products, 'ultimate-estimated-delivery-date-by-bigloop' ), $products ),
+				'count' => sprintf( _n( '%d product has its own', '%d products have their own', $products, 'bigloop-product-delivery-estimate' ), $products ),
 				'link'  => admin_url( 'edit.php?post_type=product' ),
 				'class' => '',
 			),
 			array(
-				'title' => __( 'Category', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'where' => __( 'Products → Categories → edit a category', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title' => __( 'Category', 'bigloop-product-delivery-estimate' ),
+				'where' => __( 'Products → Categories → edit a category', 'bigloop-product-delivery-estimate' ),
 				/* translators: %d: number of categories. */
-				'count' => sprintf( _n( '%d category has its own', '%d categories have their own', $categories, 'ultimate-estimated-delivery-date-by-bigloop' ), $categories ),
+				'count' => sprintf( _n( '%d category has its own', '%d categories have their own', $categories, 'bigloop-product-delivery-estimate' ), $categories ),
 				'link'  => admin_url( 'edit-tags.php?taxonomy=product_cat&post_type=product' ),
 				'class' => '',
 			),
 			array(
-				'title' => __( 'Default', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'where' => __( 'This page', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				'count' => __( 'Used for everything else', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'title' => __( 'Default', 'bigloop-product-delivery-estimate' ),
+				'where' => __( 'This page', 'bigloop-product-delivery-estimate' ),
+				'count' => __( 'Used for everything else', 'bigloop-product-delivery-estimate' ),
 				'link'  => '',
 				'class' => ' is-current',
 			),
@@ -302,8 +302,8 @@ class Dleta_Admin_UI {
 		?>
 		<div class="dleta-hierarchy">
 			<div class="dleta-hierarchy__intro">
-				<h2><?php esc_html_e( 'How the estimate is chosen', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></h2>
-				<p><?php esc_html_e( 'The most specific setting wins: a variation beats its product, a product beats its category, and a category beats the default.', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></p>
+				<h2><?php esc_html_e( 'How the estimate is chosen', 'bigloop-product-delivery-estimate' ); ?></h2>
+				<p><?php esc_html_e( 'The most specific setting wins: a variation beats its product, a product beats its category, and a category beats the default.', 'bigloop-product-delivery-estimate' ); ?></p>
 			</div>
 			<ol class="dleta-hierarchy__steps">
 				<?php foreach ( $steps as $index => $step ) : ?>
@@ -318,7 +318,7 @@ class Dleta_Admin_UI {
 						<?php endif; ?>
 					</li>
 					<?php if ( $index < count( $steps ) - 1 ) : ?>
-						<li class="dleta-hierarchy__arrow" aria-hidden="true"><span><?php esc_html_e( 'overrides', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span></li>
+						<li class="dleta-hierarchy__arrow" aria-hidden="true"><span><?php esc_html_e( 'overrides', 'bigloop-product-delivery-estimate' ); ?></span></li>
 					<?php endif; ?>
 				<?php endforeach; ?>
 			</ol>
@@ -359,17 +359,17 @@ class Dleta_Admin_UI {
 		return array(
 			'days'     => $days,
 			/* translators: 1: earliest delivery date, 2: latest delivery date. */
-			'range'    => __( '%1$s – %2$s', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'range'    => __( '%1$s – %2$s', 'bigloop-product-delivery-estimate' ),
 			'weekdays' => array(
-				__( 'Mon', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				__( 'Tue', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				__( 'Wed', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				__( 'Thu', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				__( 'Fri', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				__( 'Sat', 'ultimate-estimated-delivery-date-by-bigloop' ),
-				__( 'Sun', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				__( 'Mon', 'bigloop-product-delivery-estimate' ),
+				__( 'Tue', 'bigloop-product-delivery-estimate' ),
+				__( 'Wed', 'bigloop-product-delivery-estimate' ),
+				__( 'Thu', 'bigloop-product-delivery-estimate' ),
+				__( 'Fri', 'bigloop-product-delivery-estimate' ),
+				__( 'Sat', 'bigloop-product-delivery-estimate' ),
+				__( 'Sun', 'bigloop-product-delivery-estimate' ),
 			),
-			'beyond'   => __( 'The delivery window is further out than the calendar shows.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'beyond'   => __( 'The delivery window is further out than the calendar shows.', 'bigloop-product-delivery-estimate' ),
 		);
 	}
 
@@ -379,16 +379,16 @@ class Dleta_Admin_UI {
 	public static function aside_example() {
 		?>
 		<div class="dleta-panel dleta-example">
-			<div class="dleta-panel__label"><?php esc_html_e( 'If a customer orders today', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></div>
+			<div class="dleta-panel__label"><?php esc_html_e( 'If a customer orders today', 'bigloop-product-delivery-estimate' ); ?></div>
 			<div class="dleta-example__result">
 				<?php echo self::sample_icon(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in sample_icon(). ?>
 				<strong data-dleta-example><?php echo esc_html( self::sample_text() ); ?></strong>
 			</div>
 			<div class="dleta-cal" data-dleta-calendar aria-hidden="true"></div>
 			<ul class="dleta-cal__legend" aria-hidden="true">
-				<li><span class="dleta-cal__key is-today"></span><?php esc_html_e( 'Today', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></li>
-				<li><span class="dleta-cal__key is-window"></span><?php esc_html_e( 'Delivery', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></li>
-				<li><span class="dleta-cal__key is-skipped"></span><?php esc_html_e( 'Not counted', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></li>
+				<li><span class="dleta-cal__key is-today"></span><?php esc_html_e( 'Today', 'bigloop-product-delivery-estimate' ); ?></li>
+				<li><span class="dleta-cal__key is-window"></span><?php esc_html_e( 'Delivery', 'bigloop-product-delivery-estimate' ); ?></li>
+				<li><span class="dleta-cal__key is-skipped"></span><?php esc_html_e( 'Not counted', 'bigloop-product-delivery-estimate' ); ?></li>
 			</ul>
 			<p class="dleta-panel__note" data-dleta-beyond hidden></p>
 		</div>
@@ -417,7 +417,7 @@ class Dleta_Admin_UI {
 		$labels = Dleta_Frontend::positions_labels();
 		?>
 		<div class="dleta-panel dleta-wf dleta-wf--product" data-dleta-when="dleta_product_enabled">
-			<div class="dleta-panel__label"><?php esc_html_e( 'Where it appears', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></div>
+			<div class="dleta-panel__label"><?php esc_html_e( 'Where it appears', 'bigloop-product-delivery-estimate' ); ?></div>
 			<div class="dleta-wf__page">
 				<div class="dleta-wf__cols">
 					<div class="dleta-wf__gallery"><span class="dashicons dashicons-format-image" aria-hidden="true"></span></div>
@@ -430,7 +430,7 @@ class Dleta_Admin_UI {
 						<span class="dleta-wf__bar dleta-wf__bar--short"></span>
 						<?php self::wf_slot( 'after_excerpt', $labels ); ?>
 						<?php self::wf_slot( 'before_add_to_cart', $labels ); ?>
-						<span class="dleta-wf__buy"><span class="dleta-wf__qty">1</span><span class="dleta-wf__btn"><?php esc_html_e( 'Add to cart', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span></span>
+						<span class="dleta-wf__buy"><span class="dleta-wf__qty">1</span><span class="dleta-wf__btn"><?php esc_html_e( 'Add to cart', 'bigloop-product-delivery-estimate' ); ?></span></span>
 						<?php self::wf_slot( 'after_add_to_cart', $labels ); ?>
 						<span class="dleta-wf__bar dleta-wf__bar--meta"></span>
 						<?php self::wf_slot( 'after_meta', $labels ); ?>
@@ -443,12 +443,12 @@ class Dleta_Admin_UI {
 				<?php
 				printf(
 					/* translators: %s: shortcode. */
-					esc_html__( 'Shortcode only: the estimate appears wherever you place %s.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+					esc_html__( 'Shortcode only: the estimate appears wherever you place %s.', 'bigloop-product-delivery-estimate' ),
 					'<code>[dleta_estimate]</code>'
 				);
 				?>
 			</p>
-			<p class="dleta-panel__note dleta-panel__note--off"><?php esc_html_e( 'Product pages are switched off.', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></p>
+			<p class="dleta-panel__note dleta-panel__note--off"><?php esc_html_e( 'Product pages are switched off.', 'bigloop-product-delivery-estimate' ); ?></p>
 		</div>
 		<?php
 	}
@@ -482,9 +482,9 @@ class Dleta_Admin_UI {
 	private static function wireframe_totals( $toggle ) {
 		?>
 		<div class="dleta-wf__totals">
-			<div class="dleta-wf__line"><span><?php esc_html_e( 'Subtotal', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span><span>$67.00</span></div>
-			<div class="dleta-wf__line"><span><?php esc_html_e( 'Shipping', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span><span>$5.00</span></div>
-			<div class="dleta-wf__line dleta-wf__line--total"><span><?php esc_html_e( 'Total', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span><span>$72.00</span></div>
+			<div class="dleta-wf__line"><span><?php esc_html_e( 'Subtotal', 'bigloop-product-delivery-estimate' ); ?></span><span>$67.00</span></div>
+			<div class="dleta-wf__line"><span><?php esc_html_e( 'Shipping', 'bigloop-product-delivery-estimate' ); ?></span><span>$5.00</span></div>
+			<div class="dleta-wf__line dleta-wf__line--total"><span><?php esc_html_e( 'Total', 'bigloop-product-delivery-estimate' ); ?></span><span>$72.00</span></div>
 			<div class="dleta-wf__line dleta-wf__line--eta" data-dleta-when="<?php echo esc_attr( $toggle ); ?>">
 				<span data-dleta-text="dleta_total_label"><?php echo esc_html( Dleta_Order_Estimate::label() ); ?></span>
 				<strong><?php echo esc_html( self::sample_text() ); ?></strong>
@@ -499,14 +499,14 @@ class Dleta_Admin_UI {
 	public static function aside_wireframe_cart() {
 		?>
 		<div class="dleta-panel dleta-wf dleta-wf--cart">
-			<div class="dleta-panel__label"><?php esc_html_e( 'Where it appears', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></div>
+			<div class="dleta-panel__label"><?php esc_html_e( 'Where it appears', 'bigloop-product-delivery-estimate' ); ?></div>
 			<div class="dleta-wf__page">
-				<span class="dleta-wf__heading"><?php esc_html_e( 'Cart', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
+				<span class="dleta-wf__heading"><?php esc_html_e( 'Cart', 'bigloop-product-delivery-estimate' ); ?></span>
 				<?php self::wireframe_items( 'dleta_cart_enabled' ); ?>
 				<?php self::wireframe_totals( 'dleta_cart_total_enabled' ); ?>
-				<span class="dleta-wf__btn dleta-wf__btn--wide"><?php esc_html_e( 'Proceed to checkout', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
+				<span class="dleta-wf__btn dleta-wf__btn--wide"><?php esc_html_e( 'Proceed to checkout', 'bigloop-product-delivery-estimate' ); ?></span>
 			</div>
-			<p class="dleta-panel__note dleta-panel__note--none"><?php esc_html_e( 'Nothing is shown on the cart page.', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></p>
+			<p class="dleta-panel__note dleta-panel__note--none"><?php esc_html_e( 'Nothing is shown on the cart page.', 'bigloop-product-delivery-estimate' ); ?></p>
 		</div>
 		<?php
 	}
@@ -517,23 +517,23 @@ class Dleta_Admin_UI {
 	public static function aside_wireframe_checkout() {
 		?>
 		<div class="dleta-panel dleta-wf dleta-wf--checkout">
-			<div class="dleta-panel__label"><?php esc_html_e( 'Where it appears', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></div>
+			<div class="dleta-panel__label"><?php esc_html_e( 'Where it appears', 'bigloop-product-delivery-estimate' ); ?></div>
 			<div class="dleta-wf__page dleta-wf__page--checkout">
 				<div class="dleta-wf__form">
-					<span class="dleta-wf__heading"><?php esc_html_e( 'Checkout', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
+					<span class="dleta-wf__heading"><?php esc_html_e( 'Checkout', 'bigloop-product-delivery-estimate' ); ?></span>
 					<span class="dleta-wf__field"></span>
 					<span class="dleta-wf__field"></span>
 					<span class="dleta-wf__field dleta-wf__field--half"></span>
 					<span class="dleta-wf__field"></span>
 				</div>
 				<div class="dleta-wf__review">
-					<span class="dleta-wf__subheading"><?php esc_html_e( 'Your order', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
+					<span class="dleta-wf__subheading"><?php esc_html_e( 'Your order', 'bigloop-product-delivery-estimate' ); ?></span>
 					<?php self::wireframe_items( 'dleta_checkout_enabled' ); ?>
 					<?php self::wireframe_totals( 'dleta_checkout_total_enabled' ); ?>
-					<span class="dleta-wf__btn dleta-wf__btn--wide"><?php esc_html_e( 'Place order', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
+					<span class="dleta-wf__btn dleta-wf__btn--wide"><?php esc_html_e( 'Place order', 'bigloop-product-delivery-estimate' ); ?></span>
 				</div>
 			</div>
-			<p class="dleta-panel__note dleta-panel__note--none"><?php esc_html_e( 'Nothing is shown on the checkout page.', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></p>
+			<p class="dleta-panel__note dleta-panel__note--none"><?php esc_html_e( 'Nothing is shown on the checkout page.', 'bigloop-product-delivery-estimate' ); ?></p>
 		</div>
 		<?php
 	}
@@ -544,7 +544,7 @@ class Dleta_Admin_UI {
 	public static function aside_preview() {
 		?>
 		<div class="dleta-panel dleta-preview-panel">
-			<div class="dleta-panel__label"><?php esc_html_e( 'Live preview', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></div>
+			<div class="dleta-panel__label"><?php esc_html_e( 'Live preview', 'bigloop-product-delivery-estimate' ); ?></div>
 			<div class="dleta-mock">
 				<span class="dleta-wf__bar dleta-wf__bar--title"></span>
 				<span class="dleta-mock__price">$49.00</span>
@@ -553,9 +553,9 @@ class Dleta_Admin_UI {
 					<span class="dleta-estimate__label"><?php echo esc_html( Dleta_Rules::option( 'dleta_label' ) ); ?></span>
 					<span class="dleta-estimate__date"><?php echo esc_html( self::sample_text() ); ?></span>
 				</div>
-				<span class="dleta-mock__btn"><?php esc_html_e( 'Add to cart', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
+				<span class="dleta-mock__btn"><?php esc_html_e( 'Add to cart', 'bigloop-product-delivery-estimate' ); ?></span>
 			</div>
-			<p class="dleta-panel__note"><?php esc_html_e( 'Your theme can change the final look slightly.', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></p>
+			<p class="dleta-panel__note"><?php esc_html_e( 'Your theme can change the final look slightly.', 'bigloop-product-delivery-estimate' ); ?></p>
 		</div>
 		<?php
 	}
@@ -643,15 +643,15 @@ class Dleta_Admin_UI {
 						<input type="radio" name="<?php echo esc_attr( $field['id'] ); ?>" value="" data-sample="<?php echo esc_attr( $sample( '' ) ); ?>" <?php checked( $current, '' ); ?> />
 						<span class="dleta-format__face">
 							<span class="dleta-format__sample"><?php echo esc_html( $sample( '' ) ); ?></span>
-							<span class="dleta-format__code"><?php esc_html_e( 'Site default (Settings → General)', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
+							<span class="dleta-format__code"><?php esc_html_e( 'Site default (Settings → General)', 'bigloop-product-delivery-estimate' ); ?></span>
 						</span>
 					</label>
 
 					<label class="dleta-format dleta-format--custom">
 						<input type="radio" name="<?php echo esc_attr( $field['id'] ); ?>" value="<?php echo esc_attr( $is_custom ? $current : '' ); ?>" data-custom="1" data-sample="<?php echo esc_attr( $is_custom ? $sample( $current ) : '' ); ?>" <?php checked( $is_custom ); ?> />
 						<span class="dleta-format__face">
-							<span class="dleta-format__title"><?php esc_html_e( 'Custom', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></span>
-							<input type="text" class="dleta-format__input" value="<?php echo esc_attr( $is_custom ? $current : '' ); ?>" placeholder="<?php esc_attr_e( 'e.g. l, F jS', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>" aria-label="<?php esc_attr_e( 'Custom date format', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>" spellcheck="false" autocomplete="off" />
+							<span class="dleta-format__title"><?php esc_html_e( 'Custom', 'bigloop-product-delivery-estimate' ); ?></span>
+							<input type="text" class="dleta-format__input" value="<?php echo esc_attr( $is_custom ? $current : '' ); ?>" placeholder="<?php esc_attr_e( 'e.g. l, F jS', 'bigloop-product-delivery-estimate' ); ?>" aria-label="<?php esc_attr_e( 'Custom date format', 'bigloop-product-delivery-estimate' ); ?>" spellcheck="false" autocomplete="off" />
 							<span class="dleta-format__sample" data-dleta-custom-sample><?php echo esc_html( $is_custom ? $sample( $current ) : '' ); ?></span>
 						</span>
 					</label>
@@ -660,8 +660,8 @@ class Dleta_Admin_UI {
 					<?php
 					printf(
 						/* translators: %s: link to the date format reference. */
-						esc_html__( 'Custom formats use PHP date characters, like on Settings → General. %s', 'ultimate-estimated-delivery-date-by-bigloop' ),
-						'<a href="' . esc_url( __( 'https://wordpress.org/documentation/article/customize-date-and-time-format/', 'ultimate-estimated-delivery-date-by-bigloop' ) ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Format reference', 'ultimate-estimated-delivery-date-by-bigloop' ) . '</a>'
+						esc_html__( 'Custom formats use PHP date characters, like on Settings → General. %s', 'bigloop-product-delivery-estimate' ),
+						'<a href="' . esc_url( __( 'https://wordpress.org/documentation/article/customize-date-and-time-format/', 'bigloop-product-delivery-estimate' ) ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Format reference', 'bigloop-product-delivery-estimate' ) . '</a>'
 					);
 					?>
 				</p>
@@ -687,8 +687,8 @@ class Dleta_Admin_UI {
 				<div class="dleta-media-field">
 					<span class="dleta-media-preview"><?php echo wp_kses_post( $preview ); ?></span>
 					<input type="hidden" id="<?php echo esc_attr( $field['id'] ); ?>" name="<?php echo esc_attr( $field['id'] ); ?>" value="<?php echo esc_attr( (string) $attachment_id ); ?>" />
-					<button type="button" class="button dleta-media-select"><?php esc_html_e( 'Choose image', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></button>
-					<button type="button" class="button-link dleta-media-remove"<?php echo $attachment_id ? '' : ' hidden'; ?>><?php esc_html_e( 'Remove', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></button>
+					<button type="button" class="button dleta-media-select"><?php esc_html_e( 'Choose image', 'bigloop-product-delivery-estimate' ); ?></button>
+					<button type="button" class="button-link dleta-media-remove"<?php echo $attachment_id ? '' : ' hidden'; ?>><?php esc_html_e( 'Remove', 'bigloop-product-delivery-estimate' ); ?></button>
 				</div>
 				<?php if ( ! empty( $field['desc'] ) ) : ?>
 					<p class="description"><?php echo esc_html( $field['desc'] ); ?></p>
@@ -703,8 +703,8 @@ class Dleta_Admin_UI {
 	 */
 	public static function shortcodes() {
 		$items = array(
-			'[dleta_estimate]'          => __( 'On a product page or inside a product loop: shows that product\'s estimate.', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'[dleta_estimate id="123"]' => __( 'Anywhere: shows the estimate for product ID 123.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'[dleta_estimate]'          => __( 'On a product page or inside a product loop: shows that product\'s estimate.', 'bigloop-product-delivery-estimate' ),
+			'[dleta_estimate id="123"]' => __( 'Anywhere: shows the estimate for product ID 123.', 'bigloop-product-delivery-estimate' ),
 		);
 		?>
 		<tr class="dleta-row-full">
@@ -714,7 +714,7 @@ class Dleta_Admin_UI {
 						<li>
 							<code><?php echo esc_html( $code ); ?></code>
 							<span><?php echo esc_html( $text ); ?></span>
-							<button type="button" class="button button-small dleta-copy" data-copy="<?php echo esc_attr( $code ); ?>" data-done="<?php esc_attr_e( 'Copied', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>"><?php esc_html_e( 'Copy', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></button>
+							<button type="button" class="button button-small dleta-copy" data-copy="<?php echo esc_attr( $code ); ?>" data-done="<?php esc_attr_e( 'Copied', 'bigloop-product-delivery-estimate' ); ?>"><?php esc_html_e( 'Copy', 'bigloop-product-delivery-estimate' ); ?></button>
 						</li>
 					<?php endforeach; ?>
 				</ul>

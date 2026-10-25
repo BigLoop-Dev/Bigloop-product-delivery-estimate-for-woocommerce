@@ -4,7 +4,7 @@
  * variable subscriptions). A variation's setting overrides the product,
  * category and default settings.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -40,10 +40,10 @@ class Dleta_Variation_Fields {
 		$weekend = 'yes' === get_post_meta( $id, Dleta_Rules::META_WEEKEND, true );
 		$loop    = absint( $loop );
 		$modes   = array(
-			''      => __( 'Use product setting', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'range' => __( 'Date range (earliest and latest)', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'fixed' => __( 'Single date', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'none'  => __( 'Do not show an estimate', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			''      => __( 'Use product setting', 'bigloop-product-delivery-estimate' ),
+			'range' => __( 'Date range (earliest and latest)', 'bigloop-product-delivery-estimate' ),
+			'fixed' => __( 'Single date', 'bigloop-product-delivery-estimate' ),
+			'none'  => __( 'Do not show an estimate', 'bigloop-product-delivery-estimate' ),
 		);
 		$days    = function ( $value ) {
 			return '' === $value ? '' : (string) absint( $value );
@@ -53,8 +53,8 @@ class Dleta_Variation_Fields {
 			<p class="form-row form-row-full dleta-variation__head">
 				<label for="dleta_var_mode_<?php echo esc_attr( (string) $loop ); ?>">
 					<span class="dashicons dashicons-calendar-alt" aria-hidden="true"></span>
-					<?php esc_html_e( 'Estimated delivery', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>
-					<?php echo wc_help_tip( __( 'Overrides the product, category and default estimates for this variation only.', 'ultimate-estimated-delivery-date-by-bigloop' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wc_help_tip() escapes. ?>
+					<?php esc_html_e( 'Estimated delivery', 'bigloop-product-delivery-estimate' ); ?>
+					<?php echo wc_help_tip( __( 'Overrides the product, category and default estimates for this variation only.', 'bigloop-product-delivery-estimate' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- wc_help_tip() escapes. ?>
 				</label>
 				<select id="dleta_var_mode_<?php echo esc_attr( (string) $loop ); ?>" name="dleta_var_mode[<?php echo esc_attr( (string) $loop ); ?>]" class="dleta-var-mode">
 					<?php foreach ( $modes as $value => $label ) : ?>
@@ -63,21 +63,21 @@ class Dleta_Variation_Fields {
 				</select>
 			</p>
 			<p class="form-row form-row-first dleta-var-range">
-				<label for="dleta_var_min_<?php echo esc_attr( (string) $loop ); ?>"><?php esc_html_e( 'Earliest delivery (days)', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label>
+				<label for="dleta_var_min_<?php echo esc_attr( (string) $loop ); ?>"><?php esc_html_e( 'Earliest delivery (days)', 'bigloop-product-delivery-estimate' ); ?></label>
 				<input type="number" min="0" max="<?php echo esc_attr( (string) Dleta_Rules::MAX_DAYS ); ?>" step="1" id="dleta_var_min_<?php echo esc_attr( (string) $loop ); ?>" name="dleta_var_min[<?php echo esc_attr( (string) $loop ); ?>]" value="<?php echo esc_attr( $days( $min ) ); ?>" />
 			</p>
 			<p class="form-row form-row-last dleta-var-range">
-				<label for="dleta_var_max_<?php echo esc_attr( (string) $loop ); ?>"><?php esc_html_e( 'Latest delivery (days)', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label>
+				<label for="dleta_var_max_<?php echo esc_attr( (string) $loop ); ?>"><?php esc_html_e( 'Latest delivery (days)', 'bigloop-product-delivery-estimate' ); ?></label>
 				<input type="number" min="0" max="<?php echo esc_attr( (string) Dleta_Rules::MAX_DAYS ); ?>" step="1" id="dleta_var_max_<?php echo esc_attr( (string) $loop ); ?>" name="dleta_var_max[<?php echo esc_attr( (string) $loop ); ?>]" value="<?php echo esc_attr( $days( $max ) ); ?>" />
 			</p>
 			<p class="form-row form-row-first dleta-var-fixed">
-				<label for="dleta_var_fixed_<?php echo esc_attr( (string) $loop ); ?>"><?php esc_html_e( 'Delivery in (days)', 'ultimate-estimated-delivery-date-by-bigloop' ); ?></label>
+				<label for="dleta_var_fixed_<?php echo esc_attr( (string) $loop ); ?>"><?php esc_html_e( 'Delivery in (days)', 'bigloop-product-delivery-estimate' ); ?></label>
 				<input type="number" min="0" max="<?php echo esc_attr( (string) Dleta_Rules::MAX_DAYS ); ?>" step="1" id="dleta_var_fixed_<?php echo esc_attr( (string) $loop ); ?>" name="dleta_var_fixed[<?php echo esc_attr( (string) $loop ); ?>]" value="<?php echo esc_attr( $days( $fixed ) ); ?>" />
 			</p>
 			<p class="form-row form-row-full dleta-var-rule">
 				<label>
 					<input type="checkbox" name="dleta_var_weekends[<?php echo esc_attr( (string) $loop ); ?>]" value="yes" <?php checked( $weekend ); ?> />
-					<?php esc_html_e( 'Don\'t count Saturdays and Sundays', 'ultimate-estimated-delivery-date-by-bigloop' ); ?>
+					<?php esc_html_e( 'Don\'t count Saturdays and Sundays', 'bigloop-product-delivery-estimate' ); ?>
 				</label>
 			</p>
 		</div>

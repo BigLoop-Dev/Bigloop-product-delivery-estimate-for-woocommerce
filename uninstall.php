@@ -5,7 +5,7 @@
  * Order item notes ("Estimated delivery: ...") are kept on purpose because
  * they are part of the order history.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;

@@ -3,7 +3,7 @@
  * One combined estimate for the whole cart, shown after the order total
  * on the cart and checkout pages (classic templates and blocks).
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -42,8 +42,8 @@ class Dleta_Order_Estimate {
 	 */
 	public static function mode_labels() {
 		return array(
-			'span'     => __( 'Earliest to latest (earliest item minimum – latest item maximum)', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'complete' => __( 'Complete order (when every item should have arrived)', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'span'     => __( 'Earliest to latest (earliest item minimum – latest item maximum)', 'bigloop-product-delivery-estimate' ),
+			'complete' => __( 'Complete order (when every item should have arrived)', 'bigloop-product-delivery-estimate' ),
 		);
 	}
 
@@ -131,7 +131,7 @@ class Dleta_Order_Estimate {
 	 */
 	public static function label() {
 		$label = trim( Dleta_Rules::option( 'dleta_total_label' ) );
-		return '' === $label ? __( 'Estimated delivery for your order', 'ultimate-estimated-delivery-date-by-bigloop' ) : $label;
+		return '' === $label ? __( 'Estimated delivery for your order', 'bigloop-product-delivery-estimate' ) : $label;
 	}
 
 	/**
@@ -218,25 +218,25 @@ class Dleta_Order_Estimate {
 	public static function store_api_schema() {
 		return array(
 			'label'         => array(
-				'description' => __( 'Label for the combined delivery estimate.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'description' => __( 'Label for the combined delivery estimate.', 'bigloop-product-delivery-estimate' ),
 				'type'        => 'string',
 				'context'     => array( 'view', 'edit' ),
 				'readonly'    => true,
 			),
 			'text'          => array(
-				'description' => __( 'Combined delivery estimate for the cart.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'description' => __( 'Combined delivery estimate for the cart.', 'bigloop-product-delivery-estimate' ),
 				'type'        => 'string',
 				'context'     => array( 'view', 'edit' ),
 				'readonly'    => true,
 			),
 			'show_cart'     => array(
-				'description' => __( 'Whether to show the estimate on the cart page.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'description' => __( 'Whether to show the estimate on the cart page.', 'bigloop-product-delivery-estimate' ),
 				'type'        => 'boolean',
 				'context'     => array( 'view', 'edit' ),
 				'readonly'    => true,
 			),
 			'show_checkout' => array(
-				'description' => __( 'Whether to show the estimate on the checkout page.', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'description' => __( 'Whether to show the estimate on the checkout page.', 'bigloop-product-delivery-estimate' ),
 				'type'        => 'boolean',
 				'context'     => array( 'view', 'edit' ),
 				'readonly'    => true,

@@ -1,4 +1,4 @@
-# Ultimate Estimated Delivery Date by BigLoop
+# BigLoop Product Delivery Estimate
 
 Show customers when their order will arrive. A free WooCommerce plugin that adds an estimated delivery date to product pages, the cart, checkout and orders, for example **"Estimated delivery: Thu, Oct 22 – Mon, Oct 26"**.
 
@@ -46,7 +46,7 @@ Days are counted from today in your site's timezone.
 
 1. Install and activate WooCommerce.
 2. Download this repository as a zip, then upload it under **Plugins > Add New > Upload Plugin** (or copy the folder to `/wp-content/plugins/`).
-3. Activate **Ultimate Estimated Delivery Date by BigLoop**.
+3. Activate **BigLoop Product Delivery Estimate**.
 4. Go to **WooCommerce > Settings > Estimated Delivery** to set the default estimate and choose where it appears.
 5. Optionally set estimates per category (**Products > Categories**) or per product (**Product data > Estimated Delivery**).
 

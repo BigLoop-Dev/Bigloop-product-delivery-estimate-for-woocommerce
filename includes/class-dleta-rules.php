@@ -4,7 +4,7 @@
  *
  * Priority: product > category > global.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -49,7 +49,7 @@ class Dleta_Rules {
 			'dleta_cart_total_enabled'     => 'no',
 			'dleta_checkout_total_enabled' => 'no',
 			'dleta_total_mode'             => 'span',
-			'dleta_total_label'            => __( 'Estimated delivery for your order', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'dleta_total_label'            => __( 'Estimated delivery for your order', 'bigloop-product-delivery-estimate' ),
 			'dleta_hide_out_of_stock'      => 'yes',
 			'dleta_icon'                   => 'truck',
 			'dleta_icon_custom'            => '0',
@@ -60,7 +60,7 @@ class Dleta_Rules {
 			'dleta_font_size'              => '',
 			'dleta_text_color'             => '',
 			'dleta_date_color'             => '',
-			'dleta_label'                  => __( 'Estimated delivery:', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'dleta_label'                  => __( 'Estimated delivery:', 'bigloop-product-delivery-estimate' ),
 			'dleta_date_format'            => 'D, M j',
 			'dleta_delete_data'            => 'no',
 		);
@@ -396,19 +396,19 @@ class Dleta_Rules {
 	 */
 	public static function describe( $rule ) {
 		if ( null === $rule || 'none' === $rule['mode'] ) {
-			return __( 'Not shown', 'ultimate-estimated-delivery-date-by-bigloop' );
+			return __( 'Not shown', 'bigloop-product-delivery-estimate' );
 		}
 
 		if ( 'fixed' === $rule['mode'] ) {
 			/* translators: %d: number of days. */
-			$text = sprintf( _n( '%d day', '%d days', $rule['fixed'], 'ultimate-estimated-delivery-date-by-bigloop' ), $rule['fixed'] );
+			$text = sprintf( _n( '%d day', '%d days', $rule['fixed'], 'bigloop-product-delivery-estimate' ), $rule['fixed'] );
 		} else {
 			/* translators: 1: minimum days, 2: maximum days. */
-			$text = sprintf( __( '%1$d–%2$d days', 'ultimate-estimated-delivery-date-by-bigloop' ), $rule['min'], $rule['max'] );
+			$text = sprintf( __( '%1$d–%2$d days', 'bigloop-product-delivery-estimate' ), $rule['min'], $rule['max'] );
 		}
 
 		if ( $rule['exclude_weekends'] ) {
-			$text .= ' ' . __( '(weekends excluded)', 'ultimate-estimated-delivery-date-by-bigloop' );
+			$text .= ' ' . __( '(weekends excluded)', 'bigloop-product-delivery-estimate' );
 		}
 
 		return $text;

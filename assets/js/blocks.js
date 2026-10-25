@@ -1,5 +1,5 @@
 /**
- * Ultimate Estimated Delivery Date by BigLoop - combined order estimate for the Cart and Checkout blocks.
+ * BigLoop Product Delivery Estimate - combined order estimate for the Cart and Checkout blocks.
  *
  * Reads extensions.dleta from the Store API cart response and shows one line
  * after the order total (the "order meta" area under the totals).

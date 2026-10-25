@@ -1,5 +1,5 @@
 /**
- * Ultimate Estimated Delivery Date by BigLoop - variable products.
+ * BigLoop Product Delivery Estimate - variable products.
  *
  * When a shopper picks a variation, show that variation's estimate; when the
  * choice is cleared, go back to the product's estimate. Works for variable

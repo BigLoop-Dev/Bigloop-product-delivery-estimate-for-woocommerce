@@ -2,7 +2,7 @@
 /**
  * Front-end output: product page, cart, checkout, orders and shortcode.
  *
- * @package UltimateEDD
+ * @package BigLoopPDE
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -64,14 +64,14 @@ class Dleta_Frontend {
 	 */
 	public static function positions_labels() {
 		return array(
-			'after_title'        => __( 'After product title', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'after_price'        => __( 'After price', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'after_excerpt'      => __( 'After short description', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'before_add_to_cart' => __( 'Before add to cart button', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'after_add_to_cart'  => __( 'After add to cart button', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'after_meta'         => __( 'After product meta (SKU, categories)', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'after_summary'      => __( 'After product summary (before tabs)', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'manual'             => __( 'Shortcode only (place it yourself)', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'after_title'        => __( 'After product title', 'bigloop-product-delivery-estimate' ),
+			'after_price'        => __( 'After price', 'bigloop-product-delivery-estimate' ),
+			'after_excerpt'      => __( 'After short description', 'bigloop-product-delivery-estimate' ),
+			'before_add_to_cart' => __( 'Before add to cart button', 'bigloop-product-delivery-estimate' ),
+			'after_add_to_cart'  => __( 'After add to cart button', 'bigloop-product-delivery-estimate' ),
+			'after_meta'         => __( 'After product meta (SKU, categories)', 'bigloop-product-delivery-estimate' ),
+			'after_summary'      => __( 'After product summary (before tabs)', 'bigloop-product-delivery-estimate' ),
+			'manual'             => __( 'Shortcode only (place it yourself)', 'bigloop-product-delivery-estimate' ),
 		);
 	}
 
@@ -201,14 +201,14 @@ class Dleta_Frontend {
 	 */
 	public static function icon_labels() {
 		return array(
-			'truck'    => __( 'Delivery truck', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'fast'     => __( 'Fast truck', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'box'      => __( 'Package', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'calendar' => __( 'Calendar', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'clock'    => __( 'Clock', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'pin'      => __( 'Location pin', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'custom'   => __( 'Custom image (Media Library)', 'ultimate-estimated-delivery-date-by-bigloop' ),
-			'none'     => __( 'No icon', 'ultimate-estimated-delivery-date-by-bigloop' ),
+			'truck'    => __( 'Delivery truck', 'bigloop-product-delivery-estimate' ),
+			'fast'     => __( 'Fast truck', 'bigloop-product-delivery-estimate' ),
+			'box'      => __( 'Package', 'bigloop-product-delivery-estimate' ),
+			'calendar' => __( 'Calendar', 'bigloop-product-delivery-estimate' ),
+			'clock'    => __( 'Clock', 'bigloop-product-delivery-estimate' ),
+			'pin'      => __( 'Location pin', 'bigloop-product-delivery-estimate' ),
+			'custom'   => __( 'Custom image (Media Library)', 'bigloop-product-delivery-estimate' ),
+			'none'     => __( 'No icon', 'bigloop-product-delivery-estimate' ),
 		);
 	}
 
@@ -450,7 +450,7 @@ class Dleta_Frontend {
 	public static function item_label() {
 		$label = trim( Dleta_Rules::option( 'dleta_label' ) );
 		$label = rtrim( $label, ": \u{00A0}" );
-		return '' === $label ? __( 'Estimated delivery', 'ultimate-estimated-delivery-date-by-bigloop' ) : $label;
+		return '' === $label ? __( 'Estimated delivery', 'bigloop-product-delivery-estimate' ) : $label;
 	}
 
 	/**
@@ -462,23 +462,23 @@ class Dleta_Frontend {
 	public static function font_choices() {
 		return array(
 			'inherit' => array(
-				'label' => __( 'Theme font (default)', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'label' => __( 'Theme font (default)', 'bigloop-product-delivery-estimate' ),
 				'stack' => 'inherit',
 			),
 			'system'  => array(
-				'label' => __( 'System sans-serif', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'label' => __( 'System sans-serif', 'bigloop-product-delivery-estimate' ),
 				'stack' => 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
 			),
 			'serif'   => array(
-				'label' => __( 'Serif', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'label' => __( 'Serif', 'bigloop-product-delivery-estimate' ),
 				'stack' => 'Georgia, "Times New Roman", Times, serif',
 			),
 			'mono'    => array(
-				'label' => __( 'Monospace', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'label' => __( 'Monospace', 'bigloop-product-delivery-estimate' ),
 				'stack' => 'ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace',
 			),
 			'custom'  => array(
-				'label' => __( 'Custom (a font your theme already loads)', 'ultimate-estimated-delivery-date-by-bigloop' ),
+				'label' => __( 'Custom (a font your theme already loads)', 'bigloop-product-delivery-estimate' ),
 				'stack' => '',
 			),
 		);
