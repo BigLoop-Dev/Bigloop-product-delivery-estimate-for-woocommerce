@@ -130,6 +130,15 @@ By default, settings are kept. To remove all settings and category/product estim
 
 This plugin does not collect, store or send any personal data, and makes no connections to external services.
 
+== Screenshots ==
+
+1. Estimated delivery date on a product page.
+2. Estimates in the cart, with the combined order estimate after the total.
+3. Delivery time settings with a live calendar preview.
+4. Placement settings with page wireframes.
+5. Appearance settings with a live preview.
+6. Per-product override in the Estimated Delivery product data tab.
+
 == Changelog ==
 
 = 1.0.0 =
