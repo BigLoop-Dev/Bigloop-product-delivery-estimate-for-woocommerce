@@ -2,7 +2,7 @@
 Contributors: bigloopdev
 Tags: woocommerce, estimated delivery, delivery date, shipping, delivery time
 Requires at least: 6.5
-Tested up to: 7.1
+Tested up to: 7.2
 Requires PHP: 7.4
 Stable tag: 1.0.0
 License: GPLv2 or later
